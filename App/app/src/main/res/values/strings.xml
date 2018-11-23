@@ -8,4 +8,28 @@
 
     <string name="btn_register_main">Cadastre-se</string>
     <string name="btn_login_main">Login</string>
+
+    <string name="title_register">Cadastro</string>
+    <string name="btn_register_provider">Fornecedor</string>
+    <string name="btn_register_client">Cliente</string>
+
+    <string name="title_register_provider">Cadastro Fornecedor</string>
+    <string name="register_provider_restaurant">Restaurante</string>
+    <string name="hint_register_provider_restaurant">Nome do Restaurante</string>
+    <string name="register_provider_name">Nome</string>
+    <string name="hint_register_provider_name">Seu nome</string>
+    <string name="register_provider_email">E-mail</string>
+    <string name="hint_register_provider_email">Seu e-mail</string>
+    <string name="register_provider_phone">Telefone</string>
+    <string name="hint_register_provider_phone">Seu telefone</string>
+
+    <string name="title_register_client">Cadastro Cliente</string>
+    <string name="register_client_name">Nome</string>
+    <string name="hint_register_client_name">Seu nome</string>
+    <string name="register_client_email">E-mail</string>
+    <string name="hint_register_client_email">Seu e-mail</string>
+    <string name="register_client_phone">Telefone</string>
+    <string name="hint_register_client_phone">Seu telefone</string>
+
+    <string name="btn_save_register">Cadastrar</string>
 </resources>
