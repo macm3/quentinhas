@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "895691616670",
+    "firebase_url": "https://quentinhas-f1ad4.firebaseio.com",
+    "project_id": "quentinhas-f1ad4",
+    "storage_bucket": "quentinhas-f1ad4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895691616670:android:0e57bb8ea2cf89ba",
+        "android_client_info": {
+          "package_name": "com.ufpe.if710.quentinhas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895691616670-o8pqto01b9g5t1ipjrdp2t8s102mgfek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2VkaQ9YqeYpd7_JkoYfql2JYrPA2tWMs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Quentinhas</string>
+
+    <string name="title_login">Login</string>
+    <string name="email_login">E-mail</string>
+    <string name="password_login">Senha</string>
+    <string name="btn_login">Entrar</string>
 </resources>
