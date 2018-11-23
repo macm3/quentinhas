@@ -9,11 +9,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity
-                android:name=".MainActivity"
-                android:label=""
-                android:screenOrientation="sensorPortrait"
-                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".SplashActivity"
+                  android:label=""
+                  android:screenOrientation="sensorPortrait"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,12 +20,22 @@
             </intent-filter>
         </activity>
         <activity
+                android:name=".MainActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
+        <activity
                 android:name=".LoginActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts"/>
     </application>
 
 </manifest>

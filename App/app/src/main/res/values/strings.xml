@@ -5,4 +5,7 @@
     <string name="email_login">E-mail</string>
     <string name="password_login">Senha</string>
     <string name="btn_login">Entrar</string>
+
+    <string name="btn_register_main">Cadastre-se</string>
+    <string name="btn_login_main">Login</string>
 </resources>
