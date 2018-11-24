@@ -9,9 +9,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.ufpe.if710.quentinhas.MainActivity.Companion.EMAIL
-import com.ufpe.if710.quentinhas.MainActivity.Companion.NAME
-import com.ufpe.if710.quentinhas.MainActivity.Companion.PHONE
 import com.ufpe.if710.quentinhas.model.User
 import kotlinx.android.synthetic.main.activity_client_register.*
 
@@ -52,17 +49,13 @@ class ClientRegisterActivity : AppCompatActivity() {
             mAuth!!.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     createUser(mAuth!!.currentUser!!, email, name, phone)
-                    progress_bar_client.visibility = View.GONE
-                    val intent = Intent(this, MyRequestsActivity::class.java)
-                    intent.putExtra(NAME, name)
-                    intent.putExtra(EMAIL, email)
-                    intent.putExtra(PHONE, phone)
-                    startActivity(intent)
                 }else {
+                    progress_bar_client.visibility = View.GONE
                     Toast.makeText(this, "Error registering, try again later :(", Toast.LENGTH_LONG).show()
                 }
             }
         }else {
+            progress_bar_client.visibility = View.GONE
             Toast.makeText(this,"Please fill up the Credentials :|", Toast.LENGTH_LONG).show()
         }
     }
@@ -73,7 +66,7 @@ class ClientRegisterActivity : AppCompatActivity() {
 
         val userId = firebaseUser.uid
 
-        val user = User(userId, null, name, email, phone, false)
+        val user = User(null, name, email, phone, false)
 
         mDatabase!!.child("users").child(userId).setValue(user).addOnCompleteListener {
             progress_bar_client.visibility = View.GONE

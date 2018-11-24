@@ -2,15 +2,21 @@ package com.ufpe.if710.quentinhas
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.google.firebase.FirebaseError
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.ufpe.if710.quentinhas.model.User
 
 class MyRequestsActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
     private var currentUser: FirebaseUser? = null
 
+    private var user: User? = null
+    private var name: String? = null
+    private var email: String? = null
+    private var phone: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +33,7 @@ class MyRequestsActivity : AppCompatActivity() {
     }
 
     private fun updateUI(){
-        var userID = currentUser!!.uid
+        val userID = currentUser!!.uid
         val usersRef = FirebaseDatabase.getInstance().reference.child("users")
         val query = usersRef.orderByKey()
 
@@ -40,7 +46,13 @@ class MyRequestsActivity : AppCompatActivity() {
                 val children = snapshot.children
                 println("count: "+snapshot.children.count().toString())
                 children.forEach {
-                    println(it.toString())
+                    if (it.key.equals(userID)){
+                        user = it.getValue(User::class.java)
+                        name = user!!.name
+                        email = user!!.email
+                        phone = user!!.phone
+                        Log.d("encontrado", "$name $email $phone")
+                    }
                 }
             }
         })

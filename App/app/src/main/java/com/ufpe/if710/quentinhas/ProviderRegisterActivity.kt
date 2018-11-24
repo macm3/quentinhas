@@ -9,12 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.ufpe.if710.quentinhas.MainActivity.Companion.EMAIL
-import com.ufpe.if710.quentinhas.MainActivity.Companion.NAME
-import com.ufpe.if710.quentinhas.MainActivity.Companion.PHONE
-import com.ufpe.if710.quentinhas.MainActivity.Companion.RESTAURANT
 import com.ufpe.if710.quentinhas.model.User
-import kotlinx.android.synthetic.main.activity_client_register.*
 import kotlinx.android.synthetic.main.activity_provider_register.*
 
 class ProviderRegisterActivity : AppCompatActivity() {
@@ -48,17 +43,19 @@ class ProviderRegisterActivity : AppCompatActivity() {
         val name = edit_register_provider_name.text.toString()
         val phone = edit_register_provider_phone.text.toString()
         val restaurant = edit_register_provider_restaurant.text.toString()
-        progress_bar_client.visibility = View.VISIBLE
+        progress_bar_provider.visibility = View.VISIBLE
 
         if (!email.isEmpty() && !password.isEmpty()) {
             mAuth!!.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     createUser(mAuth!!.currentUser!!, email, name, phone, restaurant)
                 }else {
+                    progress_bar_provider.visibility = View.GONE
                     Toast.makeText(this, "Error registering, try again later :(", Toast.LENGTH_LONG).show()
                 }
             }
         }else {
+            progress_bar_provider.visibility = View.GONE
             Toast.makeText(this,"Please fill up the Credentials :|", Toast.LENGTH_LONG).show()
         }
     }
@@ -69,11 +66,11 @@ class ProviderRegisterActivity : AppCompatActivity() {
 
         val userId = firebaseUser.uid
 
-        val user = User(userId, restaurant, name, email, phone, true)
+        val user = User(restaurant, name, email, phone, true)
 
         mDatabase!!.child("users").child(userId).setValue(user).addOnCompleteListener {
-            progress_bar_client.visibility = View.GONE
-//            startActivity(Intent(this, MyRequestsActivity::class.java))
+            progress_bar_provider.visibility = View.GONE
+            startActivity(Intent(this, MyRequestsActivity::class.java)) //trocar activity
         }
     }
 }

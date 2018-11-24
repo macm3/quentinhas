@@ -55,6 +55,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                     Toast.makeText(this, "Successfully Logged in :)", Toast.LENGTH_LONG).show()
                 } else {
+                    progress_bar_login.visibility = View.GONE
                     Toast.makeText(this, "Error Logging in :(", Toast.LENGTH_SHORT).show()
                 }
             }
