@@ -22,6 +22,8 @@
     <string name="hint_register_provider_email">Seu e-mail</string>
     <string name="register_provider_phone">Telefone</string>
     <string name="hint_register_provider_phone">Seu telefone</string>
+    <string name="register_provider_password">Senha</string>
+    <string name="hint_register_provider_password">Sua senha</string>
 
     <string name="title_register_client">Cadastro Cliente</string>
     <string name="register_client_name">Nome</string>
@@ -30,6 +32,8 @@
     <string name="hint_register_client_email">Seu e-mail</string>
     <string name="register_client_phone">Telefone</string>
     <string name="hint_register_client_phone">Seu telefone</string>
+    <string name="register_client_password">Senha</string>
+    <string name="hint_register_client_password">Sua senha</string>
 
     <string name="btn_save_register">Cadastrar</string>
 </resources>

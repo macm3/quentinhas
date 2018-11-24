@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "895691616670-93eurk3utovijc8t4ob5lg1jras07cs7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ufpe.if710.quentinhas",
+            "certificate_hash": "982a14ceeb446d08c0420b0c4ddb2fcf9942edb3"
+          }
+        },
+        {
           "client_id": "895691616670-o8pqto01b9g5t1ipjrdp2t8s102mgfek.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895691616670-o8pqto01b9g5t1ipjrdp2t8s102mgfek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

@@ -133,6 +133,47 @@
                 android:fontFamily="@font/amiko"/>
 
     </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/register_client_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="15dp"
+            android:layout_centerVertical="true"
+            android:paddingStart="18dp"
+            android:paddingEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/register_client_phone">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_alignParentStart="true"
+                android:text="@string/register_client_password"
+                android:fontFamily="@font/amiko"/>
+        <EditText
+                android:id="@+id/edit_register_client_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="200dp"
+                android:inputType="textPassword"
+                android:layout_centerVertical="true"
+                android:textSize="12sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_alignParentEnd="true"
+                android:hint="@string/hint_register_client_password"
+                android:fontFamily="@font/amiko"/>
+
+    </RelativeLayout>
+    <ProgressBar
+            android:id="@+id/progress_bar_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/register_client_password"
+            app:layout_constraintStart_toStartOf="parent"/>
     <Button
             android:id="@+id/btn_register_client"
             android:layout_width="120dp"
@@ -141,7 +182,7 @@
             android:background="@color/colorPrimaryDark"
             android:textColor="@color/colorWhite"
             android:layout_marginEnd="25dp"
-            app:layout_constraintTop_toBottomOf="@+id/register_client_phone"
+            app:layout_constraintTop_toBottomOf="@+id/register_client_password"
             app:layout_constraintEnd_toEndOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

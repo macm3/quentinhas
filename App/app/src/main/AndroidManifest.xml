@@ -37,20 +37,25 @@
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts"/>
 
-        <activity android:name=".RegisterActivity"
-                  android:label=""
-                  android:screenOrientation="sensorPortrait"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".RegisterActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".ProviderRegisterActivity"
-                  android:label=""
-                  android:screenOrientation="sensorPortrait"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".ProviderRegisterActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".ClientRegisterActivity"
-                  android:label=""
-                  android:screenOrientation="sensorPortrait"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".ClientRegisterActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".MyRequestsActivity">
         </activity>
     </application>
 
