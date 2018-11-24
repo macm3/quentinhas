@@ -6,13 +6,16 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.ufpe.if710.quentinhas.model.ClientUser
+import com.ufpe.if710.quentinhas.LoginActivity.Companion.EMAIL
+import com.ufpe.if710.quentinhas.LoginActivity.Companion.NAME
+import com.ufpe.if710.quentinhas.LoginActivity.Companion.PHONE
+import com.ufpe.if710.quentinhas.model.User
 import kotlinx.android.synthetic.main.activity_client_register.*
 
 
 class ClientRegisterActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
-    private var user: ClientUser? = null
+    private var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,9 +64,5 @@ class ClientRegisterActivity : AppCompatActivity() {
         }
     }
 
-    companion object {
-        val NAME = "name"
-        val EMAIL = "email"
-        val PHONE = "phone"
-    }
+
 }
