@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
-    public override fun onStart() {
+    override fun onStart() {
         super.onStart()
         currentUser = mAuth!!.currentUser
     }
@@ -62,11 +62,5 @@ class LoginActivity : AppCompatActivity() {
         }else {
             Toast.makeText(this, "Please fill up the Credentials :|", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    companion object {
-        val NAME = "name"
-        val EMAIL = "email"
-        val PHONE = "phone"
     }
 }

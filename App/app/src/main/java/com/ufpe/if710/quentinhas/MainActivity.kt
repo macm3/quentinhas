@@ -19,4 +19,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    companion object {
+        val NAME = "name"
+        val EMAIL = "email"
+        val PHONE = "phone"
+        val RESTAURANT = "restaurant"
+    }
+
 }

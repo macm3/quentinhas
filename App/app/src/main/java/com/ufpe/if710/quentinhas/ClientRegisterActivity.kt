@@ -6,16 +6,19 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.ufpe.if710.quentinhas.LoginActivity.Companion.EMAIL
-import com.ufpe.if710.quentinhas.LoginActivity.Companion.NAME
-import com.ufpe.if710.quentinhas.LoginActivity.Companion.PHONE
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.ufpe.if710.quentinhas.MainActivity.Companion.EMAIL
+import com.ufpe.if710.quentinhas.MainActivity.Companion.NAME
+import com.ufpe.if710.quentinhas.MainActivity.Companion.PHONE
 import com.ufpe.if710.quentinhas.model.User
 import kotlinx.android.synthetic.main.activity_client_register.*
 
 
 class ClientRegisterActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
-    private var user: User? = null
+    private var mDatabase: DatabaseReference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,7 @@ class ClientRegisterActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         btn_register_client.setOnClickListener {
-            createUser()
+            registerUser()
         }
     }
 
@@ -38,7 +41,7 @@ class ClientRegisterActivity : AppCompatActivity() {
         return true
     }
 
-    private fun createUser(){
+    private fun registerUser(){
         val email = edit_register_client_email.text.toString()
         val password = edit_register_client_password.text.toString()
         val name = edit_register_client_name.text.toString()
@@ -46,9 +49,9 @@ class ClientRegisterActivity : AppCompatActivity() {
         progress_bar_client.visibility = View.VISIBLE
 
         if (!email.isEmpty() && !password.isEmpty()) {
-            this.user?.email = email
             mAuth!!.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    createUser(mAuth!!.currentUser!!, email, name, phone)
                     progress_bar_client.visibility = View.GONE
                     val intent = Intent(this, MyRequestsActivity::class.java)
                     intent.putExtra(NAME, name)
@@ -64,5 +67,18 @@ class ClientRegisterActivity : AppCompatActivity() {
         }
     }
 
+    private fun createUser(firebaseUser: FirebaseUser, email: String, name: String, phone: String){
+        mDatabase = FirebaseDatabase.getInstance().reference
+        mAuth = FirebaseAuth.getInstance()
+
+        val userId = firebaseUser.uid
+
+        val user = User(userId, null, name, email, phone, false)
+
+        mDatabase!!.child("users").child(userId).setValue(user).addOnCompleteListener {
+            progress_bar_client.visibility = View.GONE
+            startActivity(Intent(this, MyRequestsActivity::class.java))
+        }
+    }
 
 }
