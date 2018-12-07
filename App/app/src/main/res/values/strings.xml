@@ -53,4 +53,7 @@
     <string name="field_4_card_1_profile_provider">Telefone</string>
     <string name="btn_save">Salvar</string>
 
+    <string name="title_card_2_profile_provider">Trocar senha</string>
+    <string name="field_1_card_2_profile_provider">Enviaremos um email para você realizar a troca da senha</string>
+
 </resources>
