@@ -54,6 +54,8 @@
     <string name="btn_save">Salvar</string>
 
     <string name="title_card_2_profile_provider">Trocar senha</string>
-    <string name="field_1_card_2_profile_provider">Enviaremos um email para você realizar a troca da senha</string>
+    <string name="field_1_card_2_profile_provider">Clique aqui para trocar a sua senha.\nEnviaremos um email para
+        você.
+    </string>
 
 </resources>

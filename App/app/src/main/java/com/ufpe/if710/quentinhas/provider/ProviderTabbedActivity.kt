@@ -1,4 +1,4 @@
-package com.ufpe.if710.quentinhas
+package com.ufpe.if710.quentinhas.provider
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -7,24 +7,29 @@ import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.ufpe.if710.quentinhas.R
 import kotlinx.android.synthetic.main.activity_tabbed_provider.*
 
-class TabbedProviderActivity : AppCompatActivity() {
+class ProviderTabbedActivity : AppCompatActivity() {
     var toolbar: ActionBar? = null
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
                 toolbar!!.title = resources.getString(R.string.title_home)
+                val homeFragment = ProviderHomeFragment.newInstance()
+                openFragment(homeFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_menus -> {
                 toolbar!!.title = resources.getString(R.string.title_menus)
+                val menuFragment = ProviderMenusFragment.newInstance()
+                openFragment(menuFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_profile -> {
                 toolbar!!.title = resources.getString(R.string.title_profile)
-                val profileFragment = ProfileProviderFragment.newInstance()
+                val profileFragment = ProviderProfileFragment.newInstance()
                 openFragment(profileFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -44,6 +49,9 @@ class TabbedProviderActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tabbed_provider)
 
         toolbar = supportActionBar!!
+        toolbar!!.title = resources.getString(R.string.title_home)
+
+        openFragment(ProviderHomeFragment.newInstance())
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 

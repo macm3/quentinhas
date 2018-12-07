@@ -4,12 +4,13 @@
              xmlns:card_view="http://schemas.android.com/apk/res-auto"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".ProfileProviderFragment">
+             tools:context=".provider.ProviderProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
         <android.support.v7.widget.CardView
                 android:id="@+id/cardView_1_profile_provider"
                 android:layout_width="wrap_content"
@@ -57,10 +58,12 @@
                                     android:text="@string/field_1_card_1_profile_provider"/>
                             <EditText
                                     android:id="@+id/field_1_card_1_profile_provider"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="200dp"
                                     android:layout_alignParentEnd="true"
                                     android:layout_centerInParent="true"
+                                    android:gravity="end"
                                     android:textSize="14sp"
                                     android:text="restaurante"/>
                         </RelativeLayout>
@@ -77,10 +80,12 @@
                                     android:text="@string/field_2_card_1_profile_provider"/>
                             <EditText
                                     android:id="@+id/field_2_card_1_profile_provider"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="200dp"
                                     android:layout_alignParentEnd="true"
                                     android:layout_centerInParent="true"
+                                    android:gravity="end"
                                     android:textSize="14sp"
                                     android:text="nome"/>
                         </RelativeLayout>
@@ -97,10 +102,12 @@
                                     android:text="@string/field_3_card_1_profile_provider"/>
                             <EditText
                                     android:id="@+id/field_3_card_1_profile_provider"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="200dp"
                                     android:layout_alignParentEnd="true"
                                     android:layout_centerInParent="true"
+                                    android:gravity="end"
                                     android:textSize="14sp"
                                     android:text="email"/>
                         </RelativeLayout>
@@ -117,12 +124,30 @@
                                     android:text="@string/field_4_card_1_profile_provider"/>
                             <EditText
                                     android:id="@+id/field_4_card_1_profile_provider"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="200dp"
                                     android:layout_alignParentEnd="true"
                                     android:layout_centerInParent="true"
+                                    android:gravity="end"
                                     android:textSize="14sp"
                                     android:text="telefone"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp">
+                            <Button
+                                    android:id="@+id/btn_save"
+                                    android:layout_width="100dp"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:background="@color/colorPrimary"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/colorWhite"
+                                    android:text="@string/btn_save"
+                            />
                         </RelativeLayout>
                     </LinearLayout>
                 </RelativeLayout>
@@ -164,7 +189,7 @@
                         <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/field_1_card_1_profile_provider"
+                                android:text="@string/field_1_card_2_profile_provider"
                                 android:textSize="14sp"/>
                     </LinearLayout>
                 </RelativeLayout>

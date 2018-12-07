@@ -26,6 +26,7 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
         </activity>
 
         <meta-data
@@ -39,7 +40,7 @@
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity
-                android:name=".ProviderRegisterActivity"
+                android:name=".provider.ProviderRegisterActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -53,7 +54,7 @@
         <activity android:name=".MyRequestsActivity">
         </activity>
         <activity
-                android:name=".TabbedProviderActivity"
+                android:name=".provider.ProviderTabbedActivity"
                 android:label="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
