@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v7.widget.CardView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +14,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.model.User
 
@@ -28,22 +26,35 @@ class ProviderProfileFragment : Fragment() {
     private var currentUser: FirebaseUser? = null
 
     private var user: User? = null
+    private var key: String? = null
 
     private var mView: View? = null
+    private var restaurantField: EditText? = null
+    private var nameField: EditText? = null
+    private var emailField: EditText? = null
+    private var phoneField: EditText? = null
+
+    private var usersRef: DatabaseReference? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mAuth = FirebaseAuth.getInstance()
         currentUser = mAuth!!.currentUser
+        usersRef = FirebaseDatabase.getInstance().reference.child("users")
 
         findUser()
 
         mView = inflater.inflate(R.layout.fragment_profile_provider, container, false)
 
+        restaurantField = mView!!.findViewById(R.id.field_1_card_1_profile_provider)
+        nameField = mView!!.findViewById(R.id.field_2_card_1_profile_provider)
+        emailField = mView!!.findViewById(R.id.field_3_card_1_profile_provider)
+        phoneField = mView!!.findViewById(R.id.field_4_card_1_profile_provider)
+
         val card = mView!!.findViewById<CardView>(R.id.cardView_2_profile_provider)
         val btn = mView!!.findViewById<Button>(R.id.btn_save)
 
         btn.setOnClickListener {
-
+            saveInfo()
         }
 
         card.setOnClickListener {
@@ -64,21 +75,36 @@ class ProviderProfileFragment : Fragment() {
     }
 
     private fun updateUI(){
-        val restaurantField = mView!!.findViewById<EditText>(R.id.field_1_card_1_profile_provider)
-        val nameField = mView!!.findViewById<EditText>(R.id.field_2_card_1_profile_provider)
-        val emailField = mView!!.findViewById<EditText>(R.id.field_3_card_1_profile_provider)
-        val phoneField = mView!!.findViewById<EditText>(R.id.field_4_card_1_profile_provider)
+        restaurantField!!.setText(user!!.restaurant)
+        nameField!!.setText(user!!.name)
+        emailField!!.setText(user!!.email)
+        phoneField!!.setText(user!!.phone)
+    }
 
-        restaurantField.setText(user!!.restaurant)
-        nameField.setText(user!!.name)
-        emailField.setText(user!!.email)
-        phoneField.setText(user!!.phone)
+    private fun saveInfo(){
+        if (restaurantField!!.text.toString() != ""){
+            user!!.restaurant = restaurantField!!.text.toString()
+            Log.d("xablau", user!!.restaurant + " " + restaurantField!!.text.toString())
+        }
+        if (nameField!!.text.toString() != ""){
+            user!!.name = nameField!!.text.toString()
+        }
+        if (emailField!!.text.toString() != ""){
+            user!!.email = emailField!!.text.toString()
+        }
+        if (phoneField!!.text.toString() != ""){
+            user!!.phone = phoneField!!.text.toString()
+        }
+
+        usersRef!!.child(key!!).setValue(user).addOnCompleteListener {
+            updateUI()
+            Toast.makeText(context, "Dados atualizados!", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun findUser(){
         val userID = currentUser!!.uid
-        val usersRef = FirebaseDatabase.getInstance().reference.child("users")
-        val query = usersRef.orderByKey()
+        val query = usersRef!!.orderByKey()
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -90,6 +116,7 @@ class ProviderProfileFragment : Fragment() {
                 children.forEach {
                     if (it.key.equals(userID)){
                         user = it.getValue(User::class.java)
+                        key = it.key
                         updateUI()
                     }
                 }
