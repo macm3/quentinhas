@@ -1,16 +1,15 @@
 package com.ufpe.if710.quentinhas
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toolbar
-import kotlinx.android.synthetic.main.activity_tabbed.*
+import kotlinx.android.synthetic.main.activity_tabbed_provider.*
 
-class TabbedActivity : AppCompatActivity() {
+class TabbedProviderActivity : AppCompatActivity() {
     var toolbar: ActionBar? = null
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -25,15 +24,24 @@ class TabbedActivity : AppCompatActivity() {
             }
             R.id.navigation_profile -> {
                 toolbar!!.title = resources.getString(R.string.title_profile)
+                val profileFragment = ProfileProviderFragment.newInstance()
+                openFragment(profileFragment)
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
     }
 
+    private fun openFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tabbed)
+        setContentView(R.layout.activity_tabbed_provider)
 
         toolbar = supportActionBar!!
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)

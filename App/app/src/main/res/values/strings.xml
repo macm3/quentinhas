@@ -45,4 +45,12 @@
     <string name="title_home">Início</string>
     <string name="title_menus">Cardápios</string>
     <string name="title_profile">Perfil</string>
+
+    <string name="title_card_1_profile_provider">Dados pessoais</string>
+    <string name="field_1_card_1_profile_provider">Restaurante</string>
+    <string name="field_2_card_1_profile_provider">Nome</string>
+    <string name="field_3_card_1_profile_provider">E-mail</string>
+    <string name="field_4_card_1_profile_provider">Telefone</string>
+    <string name="btn_save">Salvar</string>
+
 </resources>

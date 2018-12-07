@@ -53,7 +53,7 @@
         <activity android:name=".MyRequestsActivity">
         </activity>
         <activity
-                android:name=".TabbedActivity"
+                android:name=".TabbedProviderActivity"
                 android:label="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
