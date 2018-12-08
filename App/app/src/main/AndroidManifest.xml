@@ -26,7 +26,6 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
 
         <meta-data
@@ -63,11 +62,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".provider.ProviderConfigurationsActivity"
+        <activity
+                android:name=".provider.ProviderConfigurationsActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".provider.NewMenuActivity"
                   android:label=""
                   android:screenOrientation="sensorPortrait"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
     </application>
 

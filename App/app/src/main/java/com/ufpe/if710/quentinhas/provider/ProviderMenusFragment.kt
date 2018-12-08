@@ -1,7 +1,9 @@
 package com.ufpe.if710.quentinhas.provider
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -26,6 +28,11 @@ class ProviderMenusFragment : Fragment() {
         recyclerView = mView!!.findViewById(R.id.recycler_view_menus)
         menusList.add(Menu("1", "titulo", arrayListOf("proteina 1", "proteina 2", "proteina 3")))
         updateUI()
+
+        val fab = mView!!.findViewById<FloatingActionButton>(R.id.fab_new_menu)
+        fab.setOnClickListener {
+            startActivity(Intent(context, NewMenuActivity::class.java))
+        }
 
         return mView
     }
