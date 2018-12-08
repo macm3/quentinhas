@@ -6,7 +6,6 @@ import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +24,7 @@ class ProviderProfileFragment : Fragment() {
 
     private var mAuth: FirebaseAuth? = null
     private var currentUser: FirebaseUser? = null
+    private var usersRef: DatabaseReference? = null
 
     private var user: User? = null
     private var key: String? = null
@@ -35,21 +35,20 @@ class ProviderProfileFragment : Fragment() {
     private var emailField: EditText? = null
     private var phoneField: EditText? = null
 
-    private var usersRef: DatabaseReference? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mAuth = FirebaseAuth.getInstance()
-        currentUser = mAuth!!.currentUser
-        usersRef = FirebaseDatabase.getInstance().reference.child("users")
-
-        findUser()
-
         mView = inflater.inflate(R.layout.fragment_profile_provider, container, false)
 
         restaurantField = mView!!.findViewById(R.id.field_1_card_1_profile_provider)
         nameField = mView!!.findViewById(R.id.field_2_card_1_profile_provider)
         emailField = mView!!.findViewById(R.id.field_3_card_1_profile_provider)
         phoneField = mView!!.findViewById(R.id.field_4_card_1_profile_provider)
+
+        mAuth = FirebaseAuth.getInstance()
+        currentUser = mAuth!!.currentUser
+        usersRef = FirebaseDatabase.getInstance().reference.child("users")
+
+        findUser()
 
         val card = mView!!.findViewById<CardView>(R.id.cardView_2_profile_provider)
         val btn = mView!!.findViewById<Button>(R.id.btn_save_profile)
@@ -85,7 +84,6 @@ class ProviderProfileFragment : Fragment() {
     private fun saveInfo(){
         if (restaurantField!!.text.toString() != ""){
             user!!.restaurant = restaurantField!!.text.toString()
-            Log.d("xablau", user!!.restaurant + " " + restaurantField!!.text.toString())
         }
         if (nameField!!.text.toString() != ""){
             user!!.name = nameField!!.text.toString()
@@ -105,7 +103,7 @@ class ProviderProfileFragment : Fragment() {
 
     private fun findUser(){
         val userID = currentUser!!.uid
-        val query = usersRef!!.orderByKey()
+        val query = usersRef!!.orderByKey().equalTo(userID)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -113,14 +111,10 @@ class ProviderProfileFragment : Fragment() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val children = snapshot.children
-                children.forEach {
-                    if (it.key.equals(userID)){
-                        user = it.getValue(User::class.java)
-                        key = it.key
-                        updateUI()
-                    }
-                }
+                val data = snapshot.children.first()
+                user = data.getValue(User::class.java)
+                key = data.key
+                updateUI()
             }
         })
     }

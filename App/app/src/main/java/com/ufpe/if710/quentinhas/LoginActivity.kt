@@ -44,10 +44,6 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
     private fun login () {
         val email = edit_email.text.toString()
         val password = edit_password.text.toString()
@@ -82,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
     private fun findUser(){
         val userID = currentUser!!.uid
         val usersRef = FirebaseDatabase.getInstance().reference.child("users")
-        val query = usersRef.orderByKey()
+        val query = usersRef.orderByKey().equalTo(userID)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -90,14 +86,11 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val children = snapshot.children
-                children.forEach {
-                    if (it.key.equals(userID)){
-                        user = it.getValue(User::class.java)
-                        goHome()
-                    }
-                }
+                val data = snapshot.children.first()
+                user = data.getValue(User::class.java)
+                goHome()
             }
+
         })
     }
 }

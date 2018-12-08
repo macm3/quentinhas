@@ -14,9 +14,6 @@ class MyRequestsActivity : AppCompatActivity() {
     private var currentUser: FirebaseUser? = null
 
     private var user: User? = null
-    private var name: String? = null
-    private var email: String? = null
-    private var phone: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +32,7 @@ class MyRequestsActivity : AppCompatActivity() {
     private fun updateUI(){
         val userID = currentUser!!.uid
         val usersRef = FirebaseDatabase.getInstance().reference.child("users")
-        val query = usersRef.orderByKey()
+        val query = usersRef.orderByKey().equalTo(userID)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -43,17 +40,8 @@ class MyRequestsActivity : AppCompatActivity() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val children = snapshot.children
-                println("count: "+snapshot.children.count().toString())
-                children.forEach {
-                    if (it.key.equals(userID)){
-                        user = it.getValue(User::class.java)
-                        name = user!!.name
-                        email = user!!.email
-                        phone = user!!.phone
-                        Log.d("encontrado", "$name $email $phone")
-                    }
-                }
+                val data = snapshot.children.first()
+                user = data.getValue(User::class.java)
             }
         })
     }
