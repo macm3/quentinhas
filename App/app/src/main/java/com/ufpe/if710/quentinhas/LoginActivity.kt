@@ -32,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         mAuth = FirebaseAuth.getInstance()
+        currentUser = mAuth!!.currentUser
 
         btn_login.setOnClickListener {
             login()
@@ -45,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        currentUser = mAuth!!.currentUser
     }
 
     private fun login () {

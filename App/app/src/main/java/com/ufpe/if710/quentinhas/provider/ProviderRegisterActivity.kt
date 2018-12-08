@@ -68,7 +68,7 @@ class ProviderRegisterActivity : AppCompatActivity() {
 
         val userId = firebaseUser.uid
 
-        val user = User(restaurant, name, email, phone, true)
+        val user = User(restaurant, name, email, phone, null, null, null, null, null,true)
 
         mDatabase!!.child("users").child(userId).setValue(user).addOnCompleteListener {
             progress_bar_provider.visibility = View.GONE

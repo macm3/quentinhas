@@ -26,6 +26,11 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
         <meta-data
@@ -45,7 +50,7 @@
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity
-                android:name=".ClientRegisterActivity"
+                android:name=".client.ClientRegisterActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -56,11 +61,7 @@
                 android:name=".provider.ProviderTabbedActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".provider.ProviderConfigurationsActivity"
                   android:label=""

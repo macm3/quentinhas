@@ -15,6 +15,9 @@ class ProviderConfigurationsActivity : AppCompatActivity() {
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
+
+        picker_end.setIs24HourView(true)
+        picker_arrival.setIs24HourView(true)
     }
 
     override fun onSupportNavigateUp():Boolean {

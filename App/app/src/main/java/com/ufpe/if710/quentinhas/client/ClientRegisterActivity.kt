@@ -1,4 +1,4 @@
-package com.ufpe.if710.quentinhas
+package com.ufpe.if710.quentinhas.client
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.ufpe.if710.quentinhas.MyRequestsActivity
+import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.model.User
 import kotlinx.android.synthetic.main.activity_client_register.*
 
@@ -66,7 +68,7 @@ class ClientRegisterActivity : AppCompatActivity() {
 
         val userId = firebaseUser.uid
 
-        val user = User(null, name, email, phone, false)
+        val user = User(null, name, email, phone, null, null, null, null, null, false)
 
         mDatabase!!.child("users").child(userId).setValue(user).addOnCompleteListener {
             progress_bar_client.visibility = View.GONE

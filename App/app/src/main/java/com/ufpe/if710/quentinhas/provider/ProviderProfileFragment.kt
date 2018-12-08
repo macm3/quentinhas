@@ -4,6 +4,7 @@ package com.ufpe.if710.quentinhas.provider
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
 import android.util.Log
 import android.view.LayoutInflater
@@ -58,8 +59,8 @@ class ProviderProfileFragment : Fragment() {
         }
 
         card.setOnClickListener {
-            card.setCardBackgroundColor(resources.getColor(R.color.colorPrimary))
-            handle.postDelayed({card.setCardBackgroundColor(resources.getColor(R.color.colorWhite)) }, 500)
+            card.setCardBackgroundColor(ContextCompat.getColor(context!!, R.color.colorPrimary))
+            handle.postDelayed({card.setCardBackgroundColor(ContextCompat.getColor(context!!, R.color.colorWhite)) }, 500)
             sendEmail()
         }
         return mView
