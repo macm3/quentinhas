@@ -1,5 +1,6 @@
 package com.ufpe.if710.quentinhas.provider
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -62,6 +63,7 @@ class ProviderTabbedActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId)  {
         R.id.action_config -> {
+            startActivity(Intent(this, ProviderConfigurationsActivity::class.java))
             true
         }
         else -> {

@@ -51,7 +51,7 @@ class ProviderProfileFragment : Fragment() {
         phoneField = mView!!.findViewById(R.id.field_4_card_1_profile_provider)
 
         val card = mView!!.findViewById<CardView>(R.id.cardView_2_profile_provider)
-        val btn = mView!!.findViewById<Button>(R.id.btn_save)
+        val btn = mView!!.findViewById<Button>(R.id.btn_save_profile)
 
         btn.setOnClickListener {
             saveInfo()
