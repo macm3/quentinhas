@@ -5,14 +5,14 @@ class User(
         var name: String? = null,
         var email: String? = null,
         var phone: String? = null,
-        var paymentMethods: ArrayList<PaymentMethod>? = null,
+        var paymentMethods: ArrayList<PaymentMethod> = arrayListOf(),
         var endTime: String? = null,
         var pickupTime:  String? = null,
         var address: String? = null,
         var menus: ArrayList<Menu>? = null,
         var provider: Boolean? = null
 ) {
-        constructor(): this("", "", "", "", null, "", "", "", null, null)
+        constructor(): this("", "", "", "", arrayListOf(), null, null, "", null, null)
 
         enum class PaymentMethod {
                 CASH, PAGSEGURO

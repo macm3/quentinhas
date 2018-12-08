@@ -78,13 +78,13 @@
                             android:orientation="vertical">
 
                         <CheckBox
-                                android:id="@+id/toggle_money"
+                                android:id="@+id/check_cash"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/toggle_money"/>
 
                         <CheckBox
-                                android:id="@+id/toggle_pagseguro"
+                                android:id="@+id/check_pagseguro"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/toggle_pagseguro"/>
@@ -152,7 +152,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                             <Button
-                                    android:id="@+id/btn_save_request_end"
+                                    android:id="@+id/btn_save_end_time"
                                     android:layout_width="100dp"
                                     android:layout_height="20dp"
                                     android:layout_alignParentEnd="true"
@@ -202,7 +202,7 @@
                             android:orientation="vertical">
 
                         <TimePicker
-                                android:id="@+id/picker_arrival"
+                                android:id="@+id/picker_pickup"
                                 android:layout_width="wrap_content"
                                 android:layout_height="75dp"
                                 android:timePickerMode="spinner"/>
@@ -211,7 +211,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                             <Button
-                                    android:id="@+id/btn_save_arrival"
+                                    android:id="@+id/btn_save_pickup"
                                     android:layout_width="100dp"
                                     android:layout_height="20dp"
                                     android:layout_alignParentEnd="true"
@@ -261,6 +261,7 @@
                             android:orientation="vertical">
 
                         <EditText
+                                android:id="@+id/pickup_address"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 />
@@ -269,7 +270,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                             <Button
-                                    android:id="@+id/btn_save_pickup_place"
+                                    android:id="@+id/btn_save_pickup_address"
                                     android:layout_width="100dp"
                                     android:layout_height="20dp"
                                     android:layout_alignParentEnd="true"

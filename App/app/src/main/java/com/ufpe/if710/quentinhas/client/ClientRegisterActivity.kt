@@ -68,7 +68,7 @@ class ClientRegisterActivity : AppCompatActivity() {
 
         val userId = firebaseUser.uid
 
-        val user = User(null, name, email, phone, null, null, null, null, null, false)
+        val user = User(null, name, email, phone, arrayListOf(), null, null, null, null, false)
 
         mDatabase!!.child("users").child(userId).setValue(user).addOnCompleteListener {
             progress_bar_client.visibility = View.GONE
