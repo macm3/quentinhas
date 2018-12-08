@@ -67,4 +67,7 @@
 
     <string name="title_configurations">Configurações</string>
 
+    <string name="text_example">Parmegiana de frango\nEstrogonofe de carne\nFeijoada</string>
+    <string name="btn_more_details_menu">Mais</string>
+
 </resources>
