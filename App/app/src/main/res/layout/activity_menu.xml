@@ -58,16 +58,6 @@
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:text="@string/proteins"/>
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:text="proteina 1"
-                            android:textSize="15sp"/>
-
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -87,15 +77,6 @@
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:text="@string/sides"/>
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:text="acompanhamento 1"
-                            android:textSize="15sp"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -115,15 +96,6 @@
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:text="@string/sizes"/>
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:text="tamanho 1"
-                            android:textSize="15sp"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
             <RelativeLayout
