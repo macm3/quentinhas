@@ -60,6 +60,7 @@ class EditMenuActivity : AppCompatActivity() {
     }
 
     private fun updateUI(){
+        title_edit_menu.setText(menu!!.title!!.substringAfter("Cardápio "))
 
         for (protein in menu!!.protein){
             parentLinearLayout = findViewById(R.id.linear_layout_edit_protein)
