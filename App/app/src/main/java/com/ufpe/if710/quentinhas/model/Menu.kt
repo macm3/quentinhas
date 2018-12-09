@@ -7,7 +7,7 @@ class Menu(
     var protein: ArrayList<String> = arrayListOf(),
     var side: ArrayList<String> = arrayListOf(),
     var size: ArrayList<String> = arrayListOf(),
-    var day: ArrayList<String> = arrayListOf()
+    var day: String? = null
 ) {
-    constructor(): this("", "", "", arrayListOf(), arrayListOf(), arrayListOf(), arrayListOf())
+    constructor(): this("", "", "", arrayListOf(), arrayListOf(), arrayListOf(), "")
 }
