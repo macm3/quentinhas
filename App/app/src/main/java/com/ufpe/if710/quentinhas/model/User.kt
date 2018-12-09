@@ -9,10 +9,10 @@ class User(
         var endTime: String? = null,
         var pickupTime:  String? = null,
         var address: String? = null,
-        var menus: ArrayList<Menu>? = null,
+        var menus: ArrayList<Menu> = arrayListOf(),
         var provider: Boolean? = null
 ) {
-        constructor(): this("", "", "", "", arrayListOf(), null, null, "", null, null)
+        constructor(): this("", "", "", "", arrayListOf(), null, null, "", arrayListOf(), null)
 
         enum class PaymentMethod {
                 CASH, PAGSEGURO

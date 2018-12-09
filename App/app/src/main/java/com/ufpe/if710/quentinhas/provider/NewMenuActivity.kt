@@ -1,17 +1,22 @@
 package com.ufpe.if710.quentinhas.provider
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.ufpe.if710.quentinhas.R
 import kotlinx.android.synthetic.main.activity_new_menu.*
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
-
-
-
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.ufpe.if710.quentinhas.MyRequestsActivity
+import com.ufpe.if710.quentinhas.model.Menu
+import com.ufpe.if710.quentinhas.model.User
+import kotlinx.android.synthetic.main.activity_provider_register.*
 
 
 class NewMenuActivity : AppCompatActivity() {
@@ -20,6 +25,15 @@ class NewMenuActivity : AppCompatActivity() {
     private var listEditTextSide: ArrayList<EditText> = arrayListOf()
     private var listEditTextSize: ArrayList<EditText> = arrayListOf()
 
+    private var providerID: String? = null
+    private var mDatabase: DatabaseReference? = null
+    private var usersRef: DatabaseReference? = null
+    private var user: User? = null
+    private var key: String? = null
+
+    private var listProtein: ArrayList<String> = arrayListOf()
+    private var listSide: ArrayList<String> = arrayListOf()
+    private var listSize: ArrayList<String> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +43,10 @@ class NewMenuActivity : AppCompatActivity() {
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
+
+        mDatabase = FirebaseDatabase.getInstance().reference
+        providerID = FirebaseAuth.getInstance().currentUser!!.uid
+        usersRef = FirebaseDatabase.getInstance().reference.child("users")
 
         btn_field_protein.setOnClickListener {
             parentLinearLayout = findViewById(R.id.linear_layout_protein)
@@ -45,6 +63,10 @@ class NewMenuActivity : AppCompatActivity() {
             listEditTextSize.add(onAddField())
         }
 
+        btn_save_new_menu.setOnClickListener {
+            createLists()
+            saveMenu()
+        }
     }
 
     private fun onAddField(): EditText {
@@ -53,6 +75,56 @@ class NewMenuActivity : AppCompatActivity() {
         // Add the new row before the add field button.
         parentLinearLayout!!.addView(rowView, parentLinearLayout!!.childCount - 1)
         return rowView.findViewById(R.id.edit_text)
+    }
+
+    private fun createLists(){
+        listProtein.add(edit_protein.text.toString())
+        listSide.add(edit_side.text.toString())
+        listSize.add(edit_size.text.toString())
+
+        for (protein in listEditTextProtein){
+            listProtein.add(protein.text.toString())
+        }
+
+        for (side in listEditTextSide){
+            listSide.add(side.text.toString())
+        }
+
+        for (size in listEditTextSize){
+            listSize.add(size.text.toString())
+        }
+    }
+
+    private fun saveMenu(){
+        val menu = Menu(providerID, title_new_menu.text.toString(), listProtein, listSide, listSize, arrayListOf())
+        val menuID = mDatabase!!.child("menus").push().key
+
+        mDatabase!!.child("menus").child(menuID!!).setValue(menu).addOnCompleteListener {
+            updateUser()
+        }
+    }
+
+    private fun updateUser(){
+        usersRef!!.child(key!!).setValue(user).addOnCompleteListener {
+            Toast.makeText(applicationContext, "Menu salvo!", Toast.LENGTH_LONG).show()
+            finish()
+        }
+    }
+
+    private fun findUser(){
+        val query = usersRef!!.orderByKey().equalTo(providerID)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                println(p0.message)
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val data = snapshot.children.first()
+                user = data.getValue(User::class.java)
+                key = data.key
+            }
+        })
     }
 
     override fun onSupportNavigateUp():Boolean {
