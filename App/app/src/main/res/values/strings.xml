@@ -80,4 +80,6 @@
     <string name="btn_schedule">Agendar</string>
     <string name="btn_edit">Editar</string>
 
+    <string name="edit_menu_title">Editar Cardápio</string>
+
 </resources>

@@ -3,6 +3,7 @@ package com.ufpe.if710.quentinhas.provider
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,12 +22,7 @@ import java.util.*
 class MenuActivity : AppCompatActivity() {
     private var menuID: String? = null
     private var menu: Menu? = null
-    private var mDatabase: DatabaseReference? = null
     private var menusRef: DatabaseReference? = null
-
-    private var listProtein: ArrayList<String> = arrayListOf()
-    private var listSide: ArrayList<String> = arrayListOf()
-    private var listSize: ArrayList<String> = arrayListOf()
 
     private var parentLinearLayout: LinearLayout? = null
     private var listTextViewProtein: ArrayList<TextView> = arrayListOf()
@@ -60,6 +56,17 @@ class MenuActivity : AppCompatActivity() {
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
             updateMenu()
         }
+
+        btn_edit_menu.setOnClickListener {
+            val intent = Intent(this, EditMenuActivity::class.java)
+            intent.putExtra(MENU_ID, menuID)
+            startActivity(intent)
+        }
+    }
+
+    override fun onSupportNavigateUp():Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun showDatePickerDialog(){
