@@ -9,7 +9,7 @@ class User(
         var endTime: String? = null,
         var pickupTime:  String? = null,
         var address: String? = null,
-        var menus: ArrayList<Menu> = arrayListOf(),
+        var menus: ArrayList<String> = arrayListOf(),
         var provider: Boolean? = null
 ) {
         constructor(): this("", "", "", "", arrayListOf(), null, null, "", arrayListOf(), null)

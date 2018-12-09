@@ -1,22 +1,18 @@
 package com.ufpe.if710.quentinhas.provider
 
 import android.content.Context
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.ufpe.if710.quentinhas.R
 import kotlinx.android.synthetic.main.activity_new_menu.*
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.ufpe.if710.quentinhas.MyRequestsActivity
 import com.ufpe.if710.quentinhas.model.Menu
 import com.ufpe.if710.quentinhas.model.User
-import kotlinx.android.synthetic.main.activity_provider_register.*
 
 
 class NewMenuActivity : AppCompatActivity() {
@@ -30,6 +26,8 @@ class NewMenuActivity : AppCompatActivity() {
     private var usersRef: DatabaseReference? = null
     private var user: User? = null
     private var key: String? = null
+
+    private var menuID: String? = null
 
     private var listProtein: ArrayList<String> = arrayListOf()
     private var listSide: ArrayList<String> = arrayListOf()
@@ -64,8 +62,8 @@ class NewMenuActivity : AppCompatActivity() {
         }
 
         btn_save_new_menu.setOnClickListener {
+            findUser()
             createLists()
-            saveMenu()
         }
     }
 
@@ -97,7 +95,7 @@ class NewMenuActivity : AppCompatActivity() {
 
     private fun saveMenu(){
         val menu = Menu(providerID, title_new_menu.text.toString(), listProtein, listSide, listSize, arrayListOf())
-        val menuID = mDatabase!!.child("menus").push().key
+        menuID = mDatabase!!.child("menus").push().key
 
         mDatabase!!.child("menus").child(menuID!!).setValue(menu).addOnCompleteListener {
             updateUser()
@@ -105,6 +103,7 @@ class NewMenuActivity : AppCompatActivity() {
     }
 
     private fun updateUser(){
+        user!!.menus.add(menuID!!)
         usersRef!!.child(key!!).setValue(user).addOnCompleteListener {
             Toast.makeText(applicationContext, "Menu salvo!", Toast.LENGTH_LONG).show()
             finish()
@@ -123,6 +122,7 @@ class NewMenuActivity : AppCompatActivity() {
                 val data = snapshot.children.first()
                 user = data.getValue(User::class.java)
                 key = data.key
+                saveMenu()
             }
         })
     }
