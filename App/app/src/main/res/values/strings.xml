@@ -75,5 +75,6 @@
     <string name="proteins">Proteínas</string>
     <string name="sides">Acompanhamentos</string>
     <string name="sizes">Tamanhos</string>
+    <string name="hint_sizes">Tamanho / preço. Exemplo: Grande / R$10,00</string>
 
 </resources>

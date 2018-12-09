@@ -89,19 +89,15 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/toggle_pagseguro"/>
 
-                        <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
                             <Button
                                     android:id="@+id/btn_save_payment"
                                     android:layout_width="100dp"
                                     android:layout_height="20dp"
-                                    android:layout_alignParentEnd="true"
+                                    android:layout_gravity="end"
                                     android:background="@color/colorPrimary"
                                     android:textSize="12sp"
                                     android:textColor="@color/colorWhite"
                                     android:text="@string/btn_save"/>
-                        </RelativeLayout>
                     </LinearLayout>
                 </RelativeLayout>
             </RelativeLayout>
@@ -148,19 +144,15 @@
                                 android:layout_height="75dp"
                                 android:timePickerMode="spinner"/>
 
-                        <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
                             <Button
                                     android:id="@+id/btn_save_end_time"
                                     android:layout_width="100dp"
                                     android:layout_height="20dp"
-                                    android:layout_alignParentEnd="true"
+                                    android:layout_gravity="end"
                                     android:background="@color/colorPrimary"
                                     android:textSize="12sp"
                                     android:textColor="@color/colorWhite"
                                     android:text="@string/btn_save"/>
-                        </RelativeLayout>
                     </LinearLayout>
                 </RelativeLayout>
             </RelativeLayout>
@@ -207,19 +199,15 @@
                                 android:layout_height="75dp"
                                 android:timePickerMode="spinner"/>
 
-                        <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
                             <Button
                                     android:id="@+id/btn_save_pickup"
                                     android:layout_width="100dp"
                                     android:layout_height="20dp"
-                                    android:layout_alignParentEnd="true"
+                                    android:layout_gravity="end"
                                     android:background="@color/colorPrimary"
                                     android:textSize="12sp"
                                     android:textColor="@color/colorWhite"
                                     android:text="@string/btn_save"/>
-                        </RelativeLayout>
                     </LinearLayout>
                 </RelativeLayout>
             </RelativeLayout>
