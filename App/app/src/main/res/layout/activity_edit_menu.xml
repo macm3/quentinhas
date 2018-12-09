@@ -3,6 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".provider.EditMenuActivity">
@@ -30,5 +31,127 @@
                     android:textSize="20sp"/>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_edit_menu">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:id="@+id/text_view_title_edit_menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:text="@string/title_edit_new_menu"/>
+                <EditText
+                        android:id="@+id/title_edit_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/text_view_title_edit_menu"
+                        android:textSize="16sp"/>
+            </RelativeLayout>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                        android:id="@+id/linear_layout_edit_protein"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@string/proteins"/>
+                    <Button
+                            android:id="@+id/btn_field_edit_protein"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/ic_add"
+                            android:backgroundTint="@color/colorPrimaryDark"
+                            android:layout_gravity="end"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                        android:id="@+id/linear_layout_edit_side"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@string/sides"/>
+                    <Button
+                            android:id="@+id/btn_field_edit_side"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/ic_add"
+                            android:backgroundTint="@color/colorPrimaryDark"
+                            android:layout_gravity="end"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                        android:id="@+id/linear_layout_edit_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@string/sizes"/>
+                    <Button
+                            android:id="@+id/btn_field_edit_size"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/ic_add"
+                            android:backgroundTint="@color/colorPrimaryDark"
+                            android:layout_gravity="end"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <Button
+                    android:id="@+id/btn_save_new_menu"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="end"
+                    android:background="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/btn_save"/>
+        </LinearLayout>
+    </ScrollView>
+
 
 </RelativeLayout>
