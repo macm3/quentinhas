@@ -94,8 +94,8 @@ class NewMenuActivity : AppCompatActivity() {
     }
 
     private fun saveMenu(){
-        val menu = Menu(providerID, title_new_menu.text.toString(), listProtein, listSide, listSize, arrayListOf())
         menuID = mDatabase!!.child("menus").push().key
+        val menu = Menu(menuID, providerID, "Cardápio ${title_new_menu.text}", listProtein, listSide, listSize, arrayListOf())
 
         mDatabase!!.child("menus").child(menuID!!).setValue(menu).addOnCompleteListener {
             updateUser()

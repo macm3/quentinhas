@@ -1,5 +1,6 @@
 package com.ufpe.if710.quentinhas.provider
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,15 +28,22 @@ class MenusAdapter(private val items: List<Menu>) : RecyclerView.Adapter<MenusAd
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val context = holder.view.context
         holder.title.text = items[position].title
         var proteins: String? = ""
-        for (i in items[position].protein!!.indices){
-            proteins = "$proteins\n${items[position].protein!![i]}"
+        for (i in items[position].protein.indices){
+            proteins = "$proteins\n${items[position].protein[i]}"
         }
         holder.text.text = proteins
 
         holder.btn.setOnClickListener {
-
+            val intent = Intent(context, MenuActivity::class.java)
+            intent.putExtra(MENU_ID, items[position].menuID)
+            context.startActivity(intent)
         }
+    }
+
+    companion object {
+        val MENU_ID = "Menu ID"
     }
 }

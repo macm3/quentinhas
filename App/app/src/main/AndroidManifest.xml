@@ -68,10 +68,17 @@
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".provider.NewMenuActivity"
-                  android:label=""
-                  android:screenOrientation="sensorPortrait"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".provider.NewMenuActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity
+                android:name=".provider.MenuActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>
 
