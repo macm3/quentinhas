@@ -115,15 +115,27 @@ class EditMenuActivity : AppCompatActivity() {
     private fun createEditText(): EditText {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val rowView = inflater.inflate(R.layout.new_field, null)
+
         parentLinearLayout!!.addView(rowView, parentLinearLayout!!.childCount - 1)
         return rowView.findViewById(R.id.edit_text)
     }
 
     fun onDelete(v: View){
         parentLinearLayout = v.parent.parent as LinearLayout
-        parentLinearLayout!!.removeView(v.parent as RelativeLayout)
+        val childLayout = v.parent as RelativeLayout
+        val editText = (v.parent as RelativeLayout).findViewById<EditText>(R.id.edit_text)
+        if (listEditTextProtein.contains(editText)) {
+            listEditTextProtein.remove(editText)
+        }
+        if (listEditTextSide.contains(editText)) {
+            listEditTextSide.remove(editText)
+        }
+        if (listEditTextSize.contains(editText)) {
+            listEditTextSize.remove(editText)
+        }
+        parentLinearLayout!!.removeView(childLayout)
     }
-
+    
     private fun createLists(){
         for (protein in listEditTextProtein){
             listProtein.add(protein.text.toString())
