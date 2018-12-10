@@ -79,14 +79,7 @@
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:text="@string/proteins"/>
-                    <EditText
-                            android:id="@+id/edit_protein"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginTop="10dp"
-                            android:textSize="15sp"/>
+
                     <Button
                             android:id="@+id/btn_field_protein"
                             android:layout_width="30dp"
@@ -113,14 +106,6 @@
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:text="@string/sides"/>
-                    <EditText
-                            android:id="@+id/edit_side"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginTop="10dp"
-                            android:textSize="15sp"/>
                     <Button
                             android:id="@+id/btn_field_side"
                             android:layout_width="30dp"
@@ -147,15 +132,6 @@
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:text="@string/sizes"/>
-                    <EditText
-                            android:id="@+id/edit_size"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginTop="10dp"
-                            android:textSize="15sp"
-                            android:hint="@string/hint_sizes"/>
                     <Button
                             android:id="@+id/btn_field_size"
                             android:layout_width="30dp"

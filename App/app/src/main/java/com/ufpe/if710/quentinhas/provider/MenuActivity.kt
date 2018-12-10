@@ -6,11 +6,10 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.TextView
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.google.firebase.database.*
 import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.model.Menu
@@ -97,7 +96,6 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
-
     private fun updateUI(){
         toolbar_menu_title.text = menu!!.title
 
@@ -127,6 +125,7 @@ class MenuActivity : AppCompatActivity() {
         for (i in listTextViewSize.indices){
             listTextViewSize[i].text = menu!!.size[i]
         }
+
     }
 
     private fun createTextView(): TextView{
@@ -145,6 +144,9 @@ class MenuActivity : AppCompatActivity() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
+                listTextViewProtein.clear()
+                listTextViewSide.clear()
+                listTextViewSize.clear()
                 if(snapshot.exists()){
                     val data = snapshot.children.first()
                     menu = data.getValue(Menu::class.java)

@@ -6,14 +6,15 @@ import android.os.Bundle
 import com.ufpe.if710.quentinhas.R
 import kotlinx.android.synthetic.main.activity_new_menu.*
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ufpe.if710.quentinhas.model.Menu
 import com.ufpe.if710.quentinhas.model.User
-
 
 class NewMenuActivity : AppCompatActivity() {
     private var parentLinearLayout: LinearLayout? = null
@@ -62,24 +63,36 @@ class NewMenuActivity : AppCompatActivity() {
         }
 
         btn_save_new_menu.setOnClickListener {
-            findUser()
             createLists()
+            findUser()
         }
     }
 
     private fun onAddField(): EditText {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
         val rowView = inflater.inflate(R.layout.new_field, null)
-        // Add the new row before the add field button.
         parentLinearLayout!!.addView(rowView, parentLinearLayout!!.childCount - 1)
         return rowView.findViewById(R.id.edit_text)
     }
 
-    private fun createLists(){
-        listProtein.add(edit_protein.text.toString())
-        listSide.add(edit_side.text.toString())
-        listSize.add(edit_size.text.toString())
+    fun onDelete(v: View){
+        parentLinearLayout = v.parent.parent as LinearLayout
+        val childLayout = v.parent as RelativeLayout
+        val editText = (v.parent as RelativeLayout).findViewById<EditText>(R.id.edit_text)
+        if (listEditTextProtein.contains(editText)) {
+            listEditTextProtein.remove(editText)
+        }
+        if (listEditTextSide.contains(editText)) {
+            listEditTextSide.remove(editText)
+        }
+        if (listEditTextSize.contains(editText)) {
+            listEditTextSize.remove(editText)
+        }
+        parentLinearLayout!!.removeView(childLayout)
+    }
 
+    private fun createLists(){
         for (protein in listEditTextProtein){
             listProtein.add(protein.text.toString())
         }
@@ -119,10 +132,12 @@ class NewMenuActivity : AppCompatActivity() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val data = snapshot.children.first()
-                user = data.getValue(User::class.java)
-                key = data.key
-                saveMenu()
+                if (snapshot.exists()){
+                    val data = snapshot.children.first()
+                    user = data.getValue(User::class.java)
+                    key = data.key
+                    saveMenu()
+                }
             }
         })
     }
