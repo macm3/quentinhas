@@ -16,6 +16,7 @@ import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.model.Menu
 import com.ufpe.if710.quentinhas.provider.MenusAdapter.Companion.MENU_ID
 import kotlinx.android.synthetic.main.activity_menu.*
+import org.jetbrains.anko.alert
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -78,14 +79,12 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun showPopUp(date: String) {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Agendamento")
-        builder.setMessage("Seu cardápio foi agendado para $date")
-        builder.setPositiveButton("OK"){_, _ ->
-            finish()
-        }
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
+        alert("Seu cardápio foi agendado para $date") {
+            title ="Agendamento"
+            positiveButton("OK") {
+                finish()
+            }
+        }.show()
     }
 
     private fun updateMenu(){
@@ -146,9 +145,11 @@ class MenuActivity : AppCompatActivity() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val data = snapshot.children.first()
-                menu = data.getValue(Menu::class.java)
-                updateUI()
+                if(snapshot.exists()){
+                    val data = snapshot.children.first()
+                    menu = data.getValue(Menu::class.java)
+                    updateUI()
+                }
             }
         })
     }
