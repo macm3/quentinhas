@@ -72,7 +72,7 @@ class ClientRegisterActivity : AppCompatActivity() {
 
         mDatabase!!.child("users").child(userId).setValue(user).addOnCompleteListener {
             progress_bar_client.visibility = View.GONE
-            startActivity(Intent(this, MyOrdersActivity::class.java))
+            startActivity(Intent(this, ClientTabbedActivity::class.java))
         }
     }
 
