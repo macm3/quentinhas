@@ -9,7 +9,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.ufpe.if710.quentinhas.model.User
 
-class MyRequestsActivity : AppCompatActivity() {
+class MyOrdersActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
     private var currentUser: FirebaseUser? = null
 

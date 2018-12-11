@@ -88,5 +88,6 @@
     <string name="welcome_restaurant">Restaurante </string>
 
     <string name="orders_received">Pedidos recebidos</string>
+    <string name="title_requests">Pedidos</string>
 
 </resources>

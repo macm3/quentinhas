@@ -12,6 +12,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.ufpe.if710.quentinhas.client.ClientTabbedActivity
 import com.ufpe.if710.quentinhas.model.User
 import com.ufpe.if710.quentinhas.provider.ProviderTabbedActivity
 
@@ -69,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
         val intent: Intent = if (user!!.provider!!){
             Intent(this, ProviderTabbedActivity::class.java)
         } else {
-            Intent(this, MyRequestsActivity::class.java)
+            Intent(this, ClientTabbedActivity::class.java)
         }
         progress_bar_login.visibility = View.GONE
         startActivity(intent)

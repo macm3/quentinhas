@@ -12,7 +12,7 @@ class User(
         var menus: ArrayList<String> = arrayListOf(),
         var provider: Boolean? = null
 ) {
-        constructor(): this("", "", "", "", arrayListOf(), null, null, "", arrayListOf(), null)
+        constructor(): this(null, "", "", "", arrayListOf(), null, null, null, arrayListOf(), null)
 
         enum class PaymentMethod {
                 CASH, PAGSEGURO
