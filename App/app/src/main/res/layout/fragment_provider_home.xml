@@ -3,12 +3,50 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".provider.ProviderHomeFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context=".provider.ProviderMenusFragment">
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+        <TextView
+                android:id="@+id/title_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/welcome"/>
+
+        <TextView
+                android:id="@+id/subtitle_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="14sp"
+                android:text="@string/welcome_restaurant"/>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:orientation="vertical">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="@string/orders_received"/>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_orders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+        </LinearLayout>
+
+    </LinearLayout>
 </FrameLayout>

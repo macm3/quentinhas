@@ -135,7 +135,7 @@ class EditMenuActivity : AppCompatActivity() {
         }
         parentLinearLayout!!.removeView(childLayout)
     }
-    
+
     private fun createLists(){
         for (protein in listEditTextProtein){
             listProtein.add(protein.text.toString())

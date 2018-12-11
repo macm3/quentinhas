@@ -70,10 +70,12 @@ class ProviderMenusFragment : Fragment() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val data = snapshot.children.first()
-                user = data.getValue(User::class.java)
-                key = data.key
-                findMenus()
+                if (snapshot.exists()){
+                    val data = snapshot.children.first()
+                    user = data.getValue(User::class.java)
+                    key = data.key
+                    findMenus()
+                }
             }
         })
     }
