@@ -21,7 +21,7 @@ class ClientTabbedActivity : AppCompatActivity(){
             }
             /*R.id.navigation_menus_client -> {
                 toolbar!!.title = "Meus Pedidos"
-                val requestFragment = ClientRequestFragment.newInstance()
+                val requestFragment = ClientOrderFragment.newInstance()
                 openFragment(requestFragment)
                 return@OnNavigationItemSelectedListener true
             }*/

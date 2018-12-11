@@ -20,7 +20,10 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
                 android:name=".LoginActivity"
@@ -28,10 +31,7 @@
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
         </activity>
 
         <meta-data
@@ -63,7 +63,7 @@
             android:screenOrientation="sensorPortrait">
         </activity>
 
-        <activity android:name=".MyRequestsActivity">
+        <activity android:name=".MyOrdersActivity">
         </activity>
         <activity
                 android:name=".provider.ProviderTabbedActivity"

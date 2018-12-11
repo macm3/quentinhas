@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.ufpe.if710.quentinhas.R
 
-class ClientRequestFragment: Fragment() {
+class ClientOrderFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_client_profile, container, false)
     }
 
     companion object {
-        fun newInstance(): ClientRequestFragment = ClientRequestFragment()
+        fun newInstance(): ClientOrderFragment = ClientOrderFragment()
     }
 }
