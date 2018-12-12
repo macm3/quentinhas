@@ -19,7 +19,7 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
 
     class MyViewHolder(val view: LinearLayout) : RecyclerView.ViewHolder(view){
         var name: TextView = view.findViewById(R.id.name_client_order)
-        var restaurant: TextView = view.findViewById(R.id.size_order)
+        var size: TextView = view.findViewById(R.id.size_order)
         var btn: Button = view.findViewById(R.id.btn_more_details_order)
     }
 
@@ -37,6 +37,8 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
         val context = holder.view.context
         retrieveUser(items[position].clientID!!, holder)
 
+        holder.size.text = items[position].size
+
         holder.btn.setOnClickListener {
             val intent = Intent(context, OrderActivity::class.java)
             intent.putExtra(ORDER_ID, items[position].orderID)
@@ -46,7 +48,6 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
 
     private fun updateUI(holder: MyViewHolder){
         holder.name.text = user!!.name!!
-
     }
 
     private fun retrieveUser(userID: String, holder: MyViewHolder){

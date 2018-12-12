@@ -90,4 +90,6 @@
     <string name="orders_received">Pedidos recebidos</string>
     <string name="title_requests">Pedidos</string>
 
+    <string name="toolbar_order_title">Pedido</string>
+
 </resources>
