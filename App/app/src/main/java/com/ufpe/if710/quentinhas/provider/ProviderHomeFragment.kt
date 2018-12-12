@@ -51,8 +51,8 @@ class ProviderHomeFragment : Fragment() {
     }
 
     private fun updateUI(){
-        nameUserTextView!!.text = "${nameUserTextView!!.text} ${user!!.name}"
-        nameRestaurantTextView!!.text = "${nameRestaurantTextView!!.text} ${user!!.restaurant}"
+        nameUserTextView!!.text = "${resources.getString(R.string.welcome)} ${user!!.name}"
+        nameRestaurantTextView!!.text = "${resources.getString(R.string.welcome_restaurant)} ${user!!.restaurant}"
 
         try {
             doAsync {

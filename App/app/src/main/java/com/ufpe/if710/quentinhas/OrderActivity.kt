@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.google.firebase.database.DatabaseReference
-import com.ufpe.if710.quentinhas.model.Menu
+import com.google.firebase.database.*
+import com.ufpe.if710.quentinhas.OrderAdapter.Companion.ORDER_ID
 import com.ufpe.if710.quentinhas.model.Order
 import kotlinx.android.synthetic.main.activity_order.*
 import java.util.ArrayList
@@ -28,11 +28,32 @@ class OrderActivity : AppCompatActivity() {
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
+
+        orderID = intent.getStringExtra(ORDER_ID)
+        ordersRef = FirebaseDatabase.getInstance().reference.child("orders")
+
+        findOrder()
     }
 
     override fun onSupportNavigateUp():Boolean {
         onBackPressed()
         return true
+    }
+
+    private fun updateUI(){
+        protein_order.text = order!!.protein
+
+        for (side in order!!.side){
+            parentLinearLayout = findViewById(R.id.linear_layout_side_order_list)
+            listTextViewSide.add(createTextView())
+        }
+
+        size_order.text = order!!.size
+
+        for (i in listTextViewSide.indices){
+            listTextViewSide[i].text = order!!.side[i]
+        }
+
     }
 
     private fun createTextView(): TextView {
@@ -41,5 +62,25 @@ class OrderActivity : AppCompatActivity() {
         parentLinearLayout!!.addView(rowView, parentLinearLayout!!.childCount)
         return rowView.findViewById(R.id.text_view)
     }
+
+    private fun findOrder(){
+        val query = ordersRef!!.orderByKey().equalTo(orderID)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                println(p0.message)
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                listTextViewSide.clear()
+                if(snapshot.exists()){
+                    val data = snapshot.children.first()
+                    order = data.getValue(Order::class.java)
+                    updateUI()
+                }
+            }
+        })
+    }
+
 
 }
