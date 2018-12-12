@@ -95,7 +95,11 @@
     <string name="title_request">Fazer Pedido</string>
     <string name="choose_restaurant">Escolha o fornecedor</string>
     <string name="choose_menu">Escolha o cardápio</string>
-    <string name="select_menu">Continuar</string>
+    <string name="select">Continuar</string>
     <string name="choose_size">Escolha o tamanho da quentinha</string>
+    <string name="choose_protein">Escolha a proteína</string>
+    <string name="choose_sides">Escolha os acompanhamentos</string>
+    <string name="choose_sides_maximum">Escolha no máximo 3</string>
+
 
 </resources>

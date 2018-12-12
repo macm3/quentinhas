@@ -74,4 +74,9 @@ class ChooseSizeActivity : AppCompatActivity() {
 
         })
     }
+
+    override fun onSupportNavigateUp():Boolean {
+        onBackPressed()
+        return true
+    }
 }

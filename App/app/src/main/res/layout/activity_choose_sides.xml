@@ -6,9 +6,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".order.ChooseProteinActivity">
+        tools:context=".order.ChooseSidesActivity">
     <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_order_protein"
+            android:id="@+id/toolbar_order_sides"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorWhite"
@@ -35,29 +35,38 @@
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_order_protein">
+            android:layout_below="@+id/toolbar_order_sides">
         <LinearLayout
+                android:id="@+id/ll_order_sides"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             <TextView
-                    android:id="@+id/title_choose_protein"
+                    android:id="@+id/title_choose_sides"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="15dp"
-                    android:text="@string/choose_protein"
+                    android:text="@string/choose_sides"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
-
-            <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_view_choose_protein"
+            <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:layout_height="wrap_content">
+                <Button
+                        android:id="@+id/btn_save_sides"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@color/colorPrimary"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/select"/>
+            </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 
