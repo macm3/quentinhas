@@ -57,32 +57,32 @@ class ProviderAdapter (private val items: List<User>) : RecyclerView.Adapter<Pro
                 val itsProvider =
                 println("count: "+snapshot.children.count().toString())
                 children.forEach {
-                    if (it.key.equals(userID)){
-                        user = it.getValue(User::class.java)
-                        name = user!!.name
-                        email = user!!.email
-                        phone = user!!.phone
-                        Log.d("encontrado", "$name $email $phone")
-                    }
+//                    if (it.key.equals(userID)){
+//                        user = it.getValue(User::class.java)
+//                        name = user!!.name
+//                        email = user!!.email
+//                        phone = user!!.phone
+//                        Log.d("encontrado", "$name $email $phone")
+//                    }
                 }
             }
         })
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val context = holder.view.context
-        holder.title.text = items[position].title
-        var proteins: String? = ""
-        for (i in items[position].protein.indices){
-            proteins = "$proteins\n${items[position].protein[i]}"
-        }
-        holder.text.text = proteins
-
-        holder.btn.setOnClickListener {
-            val intent = Intent(context, MenuActivity::class.java)
-            intent.putExtra(MENU_ID, items[position].menuID)
-            context.startActivity(intent)
-        }
+//        val context = holder.view.context
+//        holder.title.text = items[position].title
+//        var proteins: String? = ""
+//        for (i in items[position].protein.indices){
+//            proteins = "$proteins\n${items[position].protein[i]}"
+//        }
+//        holder.text.text = proteins
+//
+//        holder.btn.setOnClickListener {
+//            val intent = Intent(context, MenuActivity::class.java)
+//            intent.putExtra(MENU_ID, items[position].menuID)
+//            context.startActivity(intent)
+//        }
     }
 
     companion object {

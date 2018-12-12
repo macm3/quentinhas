@@ -14,11 +14,11 @@ class ClientHomeFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.fragment_client_home, container, false)
-        val btn = mView!!.findViewById<Button>(R.id.new_request)
+//        val btn = mView!!.findViewById<Button>(R.id.new_request)
 
-        btn.setOnClickListener {
-            //goToFirstOrder()
-        }
+//        btn.setOnClickListener {
+//            //goToFirstOrder()
+//        }
 
         return inflater.inflate(R.layout.fragment_client_home, container, false)
     }

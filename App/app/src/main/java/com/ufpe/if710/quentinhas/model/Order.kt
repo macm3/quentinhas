@@ -4,13 +4,13 @@ class Order (
     var orderID: String? = null,
     var clientID: String? = null,
     var providerID: String? = null,
+    var date: String? = null,
     var protein: String? = null,
     var side: ArrayList<String> = arrayListOf(),
     var size: String? = null,
     var urlQrCode: String? = null
-
 ){
-    constructor(): this( "", "", "", "", arrayListOf(), null, null)
+    constructor(): this( "", "", "", "", "", arrayListOf(), null, null)
 }
 
 

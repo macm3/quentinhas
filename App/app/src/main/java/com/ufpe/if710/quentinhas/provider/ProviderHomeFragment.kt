@@ -17,6 +17,8 @@ import com.ufpe.if710.quentinhas.model.User
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ProviderHomeFragment : Fragment() {
     private var mView: View? = null
@@ -87,6 +89,10 @@ class ProviderHomeFragment : Fragment() {
     }
 
     private fun findOrders(){
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        var dateThen: Date
+        val then = Calendar.getInstance()
+        val now = Calendar.getInstance()
         val query = ordersRef!!.orderByChild("providerID").equalTo(providerID)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -100,13 +106,24 @@ class ProviderHomeFragment : Fragment() {
                     for (i in snapshot.children){
                         val order = i.getValue(Order::class.java)
                         if(order != null){
-                            ordersList.add(order)
-                            updateUI()
+                            dateThen = sdf.parse(order.date)
+                            then.time = dateThen
+                            if (then.get(Calendar.DATE) != now.get(Calendar.DATE)){
+                                deleteOrder(order)
+                            } else {
+                                ordersList.add(order)
+                                updateUI()
+                            }
                         }
                     }
                 }
             }
         })
+    }
+
+    private fun deleteOrder(order: Order){
+        val mDatabase = FirebaseDatabase.getInstance().reference
+        mDatabase.child("orders").child(order.orderID!!).removeValue()
     }
 
     companion object {

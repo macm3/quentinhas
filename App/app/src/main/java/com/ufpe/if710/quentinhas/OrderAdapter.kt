@@ -69,7 +69,6 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
         })
     }
 
-
     companion object {
         val ORDER_ID = "Order ID"
     }
