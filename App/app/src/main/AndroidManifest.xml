@@ -92,7 +92,10 @@
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".OrderActivity">
+        <activity android:name=".OrderActivity"
+                  android:label=""
+                  android:screenOrientation="sensorPortrait"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>
 

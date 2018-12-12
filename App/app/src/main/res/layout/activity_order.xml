@@ -1,10 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".OrderActivity">
+        tools:context=".provider.MenuActivity">
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_order"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorWhite"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
 
-</android.support.constraint.ConstraintLayout>
+            <TextView
+                    android:id="@+id/toolbar_order_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/amiko_bold"
+                    android:text="@string/toolbar_order_title"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_order">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                        android:id="@+id/linear_layout_protein_order"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@string/proteins"/>
+                    <TextView
+                            android:id="@+id/protein_order"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="teste"
+                            android:textSize="15sp"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                        android:id="@+id/linear_layout_side_order_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@string/sides"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                        android:id="@+id/linear_layout_size_order"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@string/sizes"/>
+                    <TextView
+                            android:id="@+id/size_order"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="teste"
+                            android:textSize="15sp"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <Button
+                        android:id="@+id/btn_check_order"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@color/colorPrimary"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorWhite"
+                        android:text="Entregue"
+                        android:visibility="invisible"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

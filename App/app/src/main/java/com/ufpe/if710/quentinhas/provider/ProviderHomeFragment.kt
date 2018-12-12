@@ -29,6 +29,8 @@ class ProviderHomeFragment : Fragment() {
     private var user: User? = null
     private var key: String? = null
 
+    private var ordersRef: DatabaseReference? = null
+
     private var nameUserTextView: TextView? = null
     private var nameRestaurantTextView: TextView? = null
 
@@ -41,6 +43,8 @@ class ProviderHomeFragment : Fragment() {
 
         providerID = FirebaseAuth.getInstance().currentUser!!.uid
         usersRef = FirebaseDatabase.getInstance().reference.child("users")
+        ordersRef = FirebaseDatabase.getInstance().reference.child("orders")
+
         findUser()
 
         return mView
@@ -49,8 +53,7 @@ class ProviderHomeFragment : Fragment() {
     private fun updateUI(){
         nameUserTextView!!.text = "${nameUserTextView!!.text} ${user!!.name}"
         nameRestaurantTextView!!.text = "${nameRestaurantTextView!!.text} ${user!!.restaurant}"
-        ordersList.add(Order("id", "ls1oih4YBbWLdsFENx6U4lilGuz1", "WSgK00WT3OYdhtzT8alCosLzcOD3",
-            "Carne", arrayListOf("Arroz"), "Pequena / R$4,00"))
+
         try {
             doAsync {
                 val adapter = OrderAdapter(ordersList)
@@ -76,10 +79,33 @@ class ProviderHomeFragment : Fragment() {
                     val data = snapshot.children.first()
                     user = data.getValue(User::class.java)
                     key = data.key
-                    updateUI()
+                    findOrders()
                 }
                 //
            }
+        })
+    }
+
+    private fun findOrders(){
+        val query = ordersRef!!.orderByChild("providerID").equalTo(providerID)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                println(p0.message)
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                ordersList.clear()
+                if (snapshot.exists()){
+                    for (i in snapshot.children){
+                        val order = i.getValue(Order::class.java)
+                        if(order != null){
+                            ordersList.add(order)
+                            updateUI()
+                        }
+                    }
+                }
+            }
         })
     }
 
