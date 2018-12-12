@@ -56,8 +56,6 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait">
         </activity>
-        <activity android:name=".MyOrdersActivity">
-        </activity>
         <activity
                 android:name=".provider.ProviderTabbedActivity"
                 android:label=""
