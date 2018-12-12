@@ -19,12 +19,12 @@ class ClientTabbedActivity : AppCompatActivity(){
                 openFragment(homeFragment)
                 return@OnNavigationItemSelectedListener true
             }
-            /*R.id.navigation_menus_client -> {
-                toolbar!!.title = "Meus Pedidos"
+            R.id.navigation_order_client -> {
+                toolbar!!.title = resources.getString(R.string.toolbar_order_title)
                 val requestFragment = ClientOrderFragment.newInstance()
                 openFragment(requestFragment)
                 return@OnNavigationItemSelectedListener true
-            }*/
+            }
             R.id.navigation_profile_client -> {
                 toolbar!!.title = resources.getString(R.string.title_profile)
                 val profileFragment = ClientProfileFragment.newInstance()

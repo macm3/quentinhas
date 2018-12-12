@@ -6,9 +6,9 @@
         android:title="@string/title_home"/>
 
     <item
-        android:id="@+id/navigation_menus_client"
-        android:icon="@drawable/ic_menus"
-        android:title="@string/title_requests"/>
+        android:id="@+id/navigation_order_client"
+        android:icon="@drawable/ic_order"
+        android:title="@string/title_request"/>
 
     <item
         android:id="@+id/navigation_profile_client"

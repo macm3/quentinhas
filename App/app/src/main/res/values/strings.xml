@@ -92,4 +92,6 @@
 
     <string name="toolbar_order_title">Pedido</string>
 
+    <string name="title_request">Fazer Pedido</string>
+
 </resources>

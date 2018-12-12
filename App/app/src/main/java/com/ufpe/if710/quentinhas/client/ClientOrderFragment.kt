@@ -9,7 +9,7 @@ import com.ufpe.if710.quentinhas.R
 class ClientOrderFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_client_profile, container, false)
+        return inflater.inflate(R.layout.fragment_client_order, container, false)
     }
 
     companion object {
