@@ -16,7 +16,7 @@ import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.MENU
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROVIDER
 import com.ufpe.if710.quentinhas.model.Menu
-import com.ufpe.if710.quentinhas.order.ChooseActivity
+import com.ufpe.if710.quentinhas.order.ChooseSizeActivity
 import com.ufpe.if710.quentinhas.provider.MenusAdapter.Companion.MENU_ID
 import kotlinx.android.synthetic.main.activity_menu.*
 import org.jetbrains.anko.alert
@@ -68,7 +68,7 @@ class MenuActivity : AppCompatActivity() {
         }
 
         btn_choose_menu.setOnClickListener {
-            val intent = Intent(this, ChooseActivity::class.java)
+            val intent = Intent(this, ChooseSizeActivity::class.java)
             intent.putExtra(PROVIDER, menu!!.providerID)
             intent.putExtra(MENU, menu!!.menuID)
             startActivity(intent)

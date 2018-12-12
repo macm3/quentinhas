@@ -6,9 +6,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".order.ChooseMenuActivity">
+        tools:context=".order.ChooseSizeActivity">
     <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_order"
+            android:id="@+id/toolbar_order_size"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorWhite"
@@ -21,7 +21,6 @@
                 android:gravity="center_vertical">
 
             <TextView
-                    android:id="@+id/toolbar_order_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -36,24 +35,24 @@
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_order">
+            android:layout_below="@+id/toolbar_order_size">
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             <TextView
-                    android:id="@+id/title_choose_menu"
+                    android:id="@+id/title_choose_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="15dp"
-                    android:text="@string/choose_menu"
+                    android:text="@string/choose_size"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
             <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_view_menus"
+                    android:id="@+id/recycler_view_choose_size"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layoutManager="android.support.v7.widget.LinearLayoutManager"

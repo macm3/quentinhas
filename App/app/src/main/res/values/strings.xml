@@ -96,5 +96,6 @@
     <string name="choose_restaurant">Escolha o fornecedor</string>
     <string name="choose_menu">Escolha o cardápio</string>
     <string name="select_menu">Continuar</string>
+    <string name="choose_size">Escolha o tamanho da quentinha</string>
 
 </resources>

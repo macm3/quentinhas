@@ -20,7 +20,7 @@
             android:id="@+id/providers_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/list_item_provider"/>
+            tools:listitem="@layout/list_item"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
