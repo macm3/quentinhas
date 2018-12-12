@@ -125,9 +125,15 @@
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".order.ChoosePaymentActivity">
+        <activity android:name=".order.ChoosePaymentActivity"
+                  android:label=""
+                  android:screenOrientation="sensorPortrait"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".order.SendOrderActivity">
+        <activity android:name=".order.SendOrderActivity"
+                  android:label=""
+                  android:screenOrientation="sensorPortrait"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>
 
