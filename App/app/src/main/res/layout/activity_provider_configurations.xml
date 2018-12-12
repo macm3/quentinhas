@@ -81,7 +81,7 @@
                                 android:id="@+id/check_cash"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/toggle_money"/>
+                                android:text="@string/toggle_cash"/>
 
                         <CheckBox
                                 android:id="@+id/check_pagseguro"

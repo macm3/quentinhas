@@ -74,5 +74,7 @@ class ClientOrderFragment: Fragment() {
         val PROTEIN = "Proteina"
         val SIDES = "Acompanhamentos"
         val SIZE = "Tamanho"
+        val NOTES = "Observações"
+        val PAYMENT = "Método de pagamento"
     }
 }

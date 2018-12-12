@@ -59,7 +59,7 @@
     </string>
 
     <string name="title_card_1_config_provider">Formas de pagamento</string>
-    <string name="toggle_money">Em espécie</string>
+    <string name="toggle_cash">Em espécie</string>
     <string name="toggle_pagseguro">PagSeguro</string>
     <string name="title_card_2_config_provider">Horário encerramento pedidos</string>
     <string name="title_card_3_config_provider">Horário previsto para chegada</string>
@@ -100,6 +100,8 @@
     <string name="choose_protein">Escolha a proteína</string>
     <string name="choose_sides">Escolha os acompanhamentos</string>
     <string name="choose_sides_maximum">Escolha no máximo 3</string>
-
+    <string name="write_notes">Observações</string>
+    <string name="hint_notes">Molho a parte? Retirar algum ingrediente?\nEscreva aqui!</string>
+    <string name="choose_payment">Escolha a forma de pagamento</string>
 
 </resources>

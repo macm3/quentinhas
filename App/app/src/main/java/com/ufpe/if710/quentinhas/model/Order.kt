@@ -8,9 +8,10 @@ class Order (
     var protein: String? = null,
     var side: ArrayList<String> = arrayListOf(),
     var size: String? = null,
-    var urlQrCode: String? = null
+    var urlQrCode: String? = null,
+    var notes: String? = null
 ){
-    constructor(): this( "", "", "", "", "", arrayListOf(), null, null)
+    constructor(): this( "", "", "", "", "", arrayListOf(), null, null, null)
 }
 
 

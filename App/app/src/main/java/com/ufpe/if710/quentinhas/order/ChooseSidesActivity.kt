@@ -1,6 +1,7 @@
 package com.ufpe.if710.quentinhas.order
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.MENU
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROTEIN
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROVIDER
+import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.SIDES
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.SIZE
 import com.ufpe.if710.quentinhas.model.Menu
 import kotlinx.android.synthetic.main.activity_choose_sides.*
@@ -48,6 +50,16 @@ class ChooseSidesActivity : AppCompatActivity() {
         size = intent.extras!!.getString(SIZE)
         protein = intent.extras!!.getString(PROTEIN)
 
+        btn_save_sides.setOnClickListener {
+            val intent = Intent(this, NotesActivity::class.java)
+            intent.putExtra(PROVIDER, providerID)
+            intent.putExtra(MENU, menuID)
+            intent.putExtra(SIZE, size)
+            intent.putExtra(PROTEIN, protein)
+            intent.putExtra(SIDES, sides)
+            startActivity(intent)
+        }
+
         findMenu()
     }
 
@@ -60,10 +72,8 @@ class ChooseSidesActivity : AppCompatActivity() {
             checkBoxList[i].setOnClickListener {
                 if (checkBoxList[i].isChecked){
                     sides.add(sidesList[i])
-                    Log.d("xablau add", sides.toString())
                 } else {
                     sides.remove(sidesList[i])
-                    Log.d("xablau remove", sides.toString())
                 }
             }
         }

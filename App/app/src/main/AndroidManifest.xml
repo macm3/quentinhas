@@ -107,15 +107,27 @@
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".order.ChooseProteinActivity"
-                  android:label=""
-                  android:screenOrientation="sensorPortrait"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".order.ChooseProteinActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".order.ChooseSidesActivity"
-                  android:label=""
-                  android:screenOrientation="sensorPortrait"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".order.ChooseSidesActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity
+                android:name=".order.NotesActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".order.ChoosePaymentActivity">
+        </activity>
+        <activity android:name=".order.SendOrderActivity">
         </activity>
     </application>
 
