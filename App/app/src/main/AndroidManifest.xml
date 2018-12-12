@@ -95,7 +95,16 @@
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".order.SizeActivity">
+        <activity
+                android:name=".order.ChooseActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".order.ChooseMenuActivity"
+                  android:label=""
+                  android:screenOrientation="sensorPortrait"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>
 

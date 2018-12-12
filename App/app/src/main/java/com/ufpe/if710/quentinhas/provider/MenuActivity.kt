@@ -7,11 +7,16 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.TextView
 import android.widget.LinearLayout
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ufpe.if710.quentinhas.R
+import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.MENU
+import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROVIDER
 import com.ufpe.if710.quentinhas.model.Menu
+import com.ufpe.if710.quentinhas.order.ChooseActivity
 import com.ufpe.if710.quentinhas.provider.MenusAdapter.Companion.MENU_ID
 import kotlinx.android.synthetic.main.activity_menu.*
 import org.jetbrains.anko.alert
@@ -61,6 +66,14 @@ class MenuActivity : AppCompatActivity() {
             intent.putExtra(MENU_ID, menuID)
             startActivity(intent)
         }
+
+        btn_choose_menu.setOnClickListener {
+            val intent = Intent(this, ChooseActivity::class.java)
+            intent.putExtra(PROVIDER, menu!!.providerID)
+            intent.putExtra(MENU, menu!!.menuID)
+            startActivity(intent)
+        }
+
     }
 
     override fun onSupportNavigateUp():Boolean {
@@ -97,6 +110,13 @@ class MenuActivity : AppCompatActivity() {
 
     private fun updateUI(){
         toolbar_menu_title.text = menu!!.title
+        if (menu!!.providerID == FirebaseAuth.getInstance().uid){
+            menu_provider.visibility = View.VISIBLE
+            menu_client.visibility = View.GONE
+        } else {
+            menu_provider.visibility = View.GONE
+            menu_client.visibility = View.VISIBLE
+        }
 
         for (protein in menu!!.protein){
             parentLinearLayout = findViewById(R.id.linear_layout_protein_list)

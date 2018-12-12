@@ -94,5 +94,7 @@
 
     <string name="title_request">Fazer Pedido</string>
     <string name="choose_restaurant">Escolha o fornecedor</string>
+    <string name="choose_menu">Escolha o cardápio</string>
+    <string name="select_menu">Continuar</string>
 
 </resources>

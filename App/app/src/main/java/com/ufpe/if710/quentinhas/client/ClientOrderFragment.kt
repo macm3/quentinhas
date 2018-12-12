@@ -70,6 +70,7 @@ class ClientOrderFragment: Fragment() {
     companion object {
         fun newInstance(): ClientOrderFragment = ClientOrderFragment()
         val PROVIDER = "Fornecedor"
+        val MENU = "Cardápio"
         val PROTEIN = "Proteina"
         val SIDES = "Acompanhamentos"
         val SIZE = "Tamanho"

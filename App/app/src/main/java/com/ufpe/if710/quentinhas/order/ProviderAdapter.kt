@@ -33,9 +33,11 @@ class ProviderAdapter (private val items: List<User>) : RecyclerView.Adapter<Pro
         holder.name.text = items[position].restaurant!!
 
         holder.checkBox.setOnClickListener {
-            val intent = Intent(context, SizeActivity::class.java)
-            intent.putExtra(PROVIDER, items[position].userID)
-            context.startActivity(intent)
+            if (holder.checkBox.isChecked){
+                val intent = Intent(context, ChooseMenuActivity::class.java)
+                intent.putExtra(PROVIDER, items[position].userID)
+                context.startActivity(intent)
+            }
         }
     }
 
