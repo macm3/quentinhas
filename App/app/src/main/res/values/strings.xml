@@ -52,6 +52,7 @@
     <string name="field_3_card_1_profile_provider">E-mail</string>
     <string name="field_4_card_1_profile_provider">Telefone</string>
     <string name="btn_save">Salvar</string>
+    <string name="btn_cancel">Cancelar</string>
 
     <string name="title_card_2_profile_provider">Trocar senha</string>
     <string name="field_1_card_2_profile_provider">Clique aqui para trocar a sua senha.\nEnviaremos um email para
@@ -72,8 +73,10 @@
     <string name="title_new_menu">Novo Cardápio</string>
     <string name="title_edit_new_menu">Nome: Cardápio</string>
     <string name="proteins">Proteínas</string>
+    <string name="protein">Proteína</string>
     <string name="sides">Acompanhamentos</string>
     <string name="sizes">Tamanhos</string>
+    <string name="size">Tamanho</string>
     <string name="hint_sizes">Tamanho / preço. Exemplo: Grande / R$10,00</string>
 
     <string name="btn_schedule">Agendar</string>
@@ -103,5 +106,10 @@
     <string name="write_notes">Observações</string>
     <string name="hint_notes">Molho a parte? Retirar algum ingrediente?\nEscreva aqui!</string>
     <string name="choose_payment">Escolha a forma de pagamento</string>
+    <string name="title_send_order">Confirmação de pedido</string>
+
+    <string name="notes">Observações</string>
+    <string name="payment_method">Método de pagamento</string>
+    <string name="btn_confirm">Confirmar</string>
 
 </resources>
