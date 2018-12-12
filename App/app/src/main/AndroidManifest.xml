@@ -20,18 +20,13 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
         </activity>
         <activity
                 android:name=".LoginActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-
         </activity>
 
         <meta-data
@@ -43,7 +38,6 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
         <activity
                 android:name=".provider.ProviderRegisterActivity"
@@ -58,18 +52,21 @@
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity
-            android:name=".client.ClientTabbedActivity"
-            android:label=""
-            android:screenOrientation="sensorPortrait">
+                android:name=".client.ClientTabbedActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait">
         </activity>
-
         <activity android:name=".MyOrdersActivity">
         </activity>
         <activity
                 android:name=".provider.ProviderTabbedActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
                 android:name=".provider.ProviderConfigurationsActivity"
@@ -94,6 +91,8 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".OrderActivity">
         </activity>
     </application>
 

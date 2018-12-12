@@ -72,7 +72,7 @@ class ProviderRegisterActivity : AppCompatActivity() {
 
         mDatabase!!.child("users").child(userId).setValue(user).addOnCompleteListener {
             progress_bar_provider.visibility = View.GONE
-            startActivity(Intent(this, ProviderTabbedActivity::class.java)) //trocar activity
+            startActivity(Intent(this, ProviderTabbedActivity::class.java))
         }
     }
 }

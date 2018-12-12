@@ -7,10 +7,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.ufpe.if710.quentinhas.R
-import com.ufpe.if710.quentinhas.model.Menu
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.ufpe.if710.quentinhas.model.Order
+import com.ufpe.if710.quentinhas.model.User
 
 class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderAdapter.MyViewHolder>()  {
+    private var user: User? = null
+
     class MyViewHolder(val view: LinearLayout) : RecyclerView.ViewHolder(view){
         var name: TextView = view.findViewById(R.id.name_client_order)
         var restaurant: TextView = view.findViewById(R.id.size_order)
@@ -29,7 +35,7 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val context = holder.view.context
-        holder.name = items[position].clientName
+        retrieveUser(items[position].clientID!!, holder)
 
         holder.btn.setOnClickListener {
             val intent = Intent(context, OrderActivity::class.java)
@@ -37,6 +43,31 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
             context.startActivity(intent)
         }
     }
+
+    private fun updateUI(holder: MyViewHolder){
+        holder.name.text = user!!.name!!
+
+    }
+
+    private fun retrieveUser(userID: String, holder: MyViewHolder){
+        val usersRef = FirebaseDatabase.getInstance().reference.child("users")
+        val query = usersRef.orderByKey().equalTo(userID)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                println(p0.message)
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    val data = snapshot.children.first()
+                    user = data.getValue(User::class.java)
+                    updateUI(holder)
+                }
+            }
+        })
+    }
+
 
     companion object {
         val ORDER_ID = "Order ID"

@@ -12,7 +12,7 @@ import com.google.firebase.database.*
 import com.ufpe.if710.quentinhas.OrderAdapter
 
 import com.ufpe.if710.quentinhas.R
-import com.ufpe.if710.quentinhas.model.Menu
+import com.ufpe.if710.quentinhas.model.Order
 import com.ufpe.if710.quentinhas.model.User
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -47,7 +47,10 @@ class ProviderHomeFragment : Fragment() {
     }
 
     private fun updateUI(){
-
+        nameUserTextView!!.text = "${nameUserTextView!!.text} ${user!!.name}"
+        nameRestaurantTextView!!.text = "${nameRestaurantTextView!!.text} ${user!!.restaurant}"
+        ordersList.add(Order("id", "ls1oih4YBbWLdsFENx6U4lilGuz1", "WSgK00WT3OYdhtzT8alCosLzcOD3",
+            "Carne", arrayListOf("Arroz"), "Pequena / R$4,00"))
         try {
             doAsync {
                 val adapter = OrderAdapter(ordersList)
