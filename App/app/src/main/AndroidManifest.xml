@@ -20,14 +20,12 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
         <activity
                 android:name=".LoginActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
 
         <meta-data
@@ -66,7 +64,6 @@
                 android:name=".provider.ProviderTabbedActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait">
-
         </activity>
         <activity
                 android:name=".provider.ProviderConfigurationsActivity"
@@ -92,10 +89,13 @@
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".OrderActivity"
-                  android:label=""
-                  android:screenOrientation="sensorPortrait"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".OrderActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".order.SizeActivity">
         </activity>
     </application>
 

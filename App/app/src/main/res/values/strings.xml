@@ -93,5 +93,6 @@
     <string name="toolbar_order_title">Pedido</string>
 
     <string name="title_request">Fazer Pedido</string>
+    <string name="choose_restaurant">Escolha o fornecedor</string>
 
 </resources>
