@@ -1,5 +1,6 @@
 package com.ufpe.if710.quentinhas.order
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -13,6 +14,7 @@ import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROTEIN
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROVIDER
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.SIDES
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.SIZE
+import com.ufpe.if710.quentinhas.client.ClientTabbedActivity
 import com.ufpe.if710.quentinhas.model.Order
 import com.ufpe.if710.quentinhas.model.User
 import kotlinx.android.synthetic.main.activity_send_order.*
@@ -82,6 +84,7 @@ class SendOrderActivity : AppCompatActivity() {
 
         mDatabase!!.child("orders").child(orderID!!).setValue(order).addOnCompleteListener {
             Toast.makeText(this, "Pedido enviado com sucesso!", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, ClientTabbedActivity::class.java))
         }
     }
 
