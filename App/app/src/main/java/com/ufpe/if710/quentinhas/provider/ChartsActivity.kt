@@ -46,6 +46,11 @@ class ChartsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_charts)
 
+        setSupportActionBar(toolbar_charts)
+
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+
         providerID = FirebaseAuth.getInstance().currentUser!!.uid
         ordersRef = FirebaseDatabase.getInstance().reference.child("orders")
 
@@ -60,6 +65,11 @@ class ChartsActivity : AppCompatActivity() {
         go_chart_wasted.setOnClickListener {
             findOrders(3)
         }
+    }
+
+    override fun onSupportNavigateUp():Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun numbersOrders(){

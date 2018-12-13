@@ -137,9 +137,15 @@
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".provider.ChartsActivity">
+        <activity android:name=".provider.ChartsActivity"
+                  android:label=""
+                  android:screenOrientation="sensorPortrait"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".provider.ChartOrdersActivity">
+        <activity android:name=".provider.ChartOrdersActivity"
+                  android:label=""
+                  android:screenOrientation="sensorPortrait"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>
 

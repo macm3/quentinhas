@@ -20,6 +20,7 @@ import com.ufpe.if710.quentinhas.provider.ChartsActivity.Companion.THURSDAY
 import com.ufpe.if710.quentinhas.provider.ChartsActivity.Companion.TITLE
 import com.ufpe.if710.quentinhas.provider.ChartsActivity.Companion.TUESDAY
 import com.ufpe.if710.quentinhas.provider.ChartsActivity.Companion.WEDNESDAY
+import kotlinx.android.synthetic.main.activity_chart_orders.*
 import java.util.ArrayList
 
 class ChartOrdersActivity : AppCompatActivity() {
@@ -27,6 +28,11 @@ class ChartOrdersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chart_orders)
+
+        setSupportActionBar(toolbar_chart)
+
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         val anyChartView = findViewById<AnyChartView>(R.id.chart_view_order)
         anyChartView.setProgressBar(findViewById<ProgressBar>(R.id.progress_bar))
@@ -70,5 +76,10 @@ class ChartOrdersActivity : AppCompatActivity() {
         cartesian.yAxis(0).title(resources.getString(R.string.yAxis))
 
         anyChartView.setChart(cartesian)
+    }
+
+    override fun onSupportNavigateUp():Boolean {
+        onBackPressed()
+        return true
     }
 }

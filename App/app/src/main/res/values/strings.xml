@@ -136,4 +136,11 @@
     <string name="chart_delivered">Quantidade de quentinhas entregues por dia da semana</string>
     <string name="chart_wasted">Quantidade de quentinhas desperdiçadas por dia da semana</string>
 
+    <string name="btn_orders">Pedidos Recebidos</string>
+    <string name="btn_delivered">Pedidos Entregues</string>
+    <string name="btn_wasted">Pedidos desperdiçados</string>
+
+    <string name="choose_chart">Escolha qual gráfico você gostaria de ver agora.\nO primeiro mostra o total de pedidos recebidos, \no segundo mostra o total de pedidos que foram de fato entregues \ne o terceiro mostra o total de pedidos que, infelizmente, não foram entregues, sendo, assim, desperdiçados.\nTodos separados por dia da semana.</string>
+    <string name="title_charts">Gráficos</string>
+    <string name="title_chart">Gráfico</string>
 </resources>
