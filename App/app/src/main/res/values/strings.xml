@@ -118,4 +118,5 @@
 
     <string name="no_orders_provider">Ainda não há pedidos feitos hoje, lembre-se de agendar o(s) cardápio(s) que você deseja que seja(m) liberado(s)!\nAguarde que quando houver pedidos eles aparecerão nessa tela.</string>
     <string name="no_orders_client">Você ainda não realizou nenhum pedido.\nQuando realizar eles aparecerão nessa tela.</string>
+    <string name="delivered">Entregue</string>
 </resources>

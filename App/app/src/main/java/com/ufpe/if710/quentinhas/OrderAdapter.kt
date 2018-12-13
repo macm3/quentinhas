@@ -3,6 +3,7 @@ package com.ufpe.if710.quentinhas
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
@@ -23,6 +24,7 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
         var title: TextView = view.findViewById(R.id.name_client_order)
         var subtitle: TextView = view.findViewById(R.id.size_order)
         var btn: Button = view.findViewById(R.id.btn_more_details_order)
+        var check: TextView = view.findViewById(R.id.delivered_order)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -38,7 +40,11 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val context = holder.view.context
         retrieveUser(items[position].clientID!!, holder, position)
-
+        if (items[position].delivered!!){
+            holder.check.visibility = View.VISIBLE
+        } else {
+            holder.check.visibility = View.GONE
+        }
 
         holder.btn.setOnClickListener {
             val intent = Intent(context, OrderActivity::class.java)

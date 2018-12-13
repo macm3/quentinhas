@@ -55,7 +55,7 @@ class ClientHomeFragment : Fragment(){
         if(ordersList.isEmpty()){
             no_orders_client.visibility = View.VISIBLE
         } else {
-            no_orders_client.visibility = View.INVISIBLE
+            no_orders_client.visibility = View.GONE
         }
 
         try {

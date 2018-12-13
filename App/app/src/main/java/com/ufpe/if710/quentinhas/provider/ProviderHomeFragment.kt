@@ -60,7 +60,7 @@ class ProviderHomeFragment : Fragment() {
         if(ordersList.isEmpty()){
             no_orders_provider.visibility = View.VISIBLE
         } else {
-            no_orders_provider.visibility = View.INVISIBLE
+            no_orders_provider.visibility = View.GONE
         }
 
         try {

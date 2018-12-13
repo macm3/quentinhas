@@ -80,7 +80,7 @@ class SendOrderActivity : AppCompatActivity() {
         orderID = mDatabase!!.child("orders").push().key
         val clientID = FirebaseAuth.getInstance().currentUser!!.uid
 
-        val order = Order(orderID, clientID, providerID, sdf.format(Date()), protein, sides, size, null, notes)
+        val order = Order(orderID, clientID, providerID, sdf.format(Date()), protein, sides, size, false, notes)
 
         mDatabase!!.child("orders").child(orderID!!).setValue(order).addOnCompleteListener {
             Toast.makeText(this, "Pedido enviado com sucesso!", Toast.LENGTH_LONG).show()
