@@ -5,7 +5,7 @@
           android:title="@string/action_config"
           app:showAsAction="never"/>
 
-    <item android:id="@+id/action_waste"
-          android:title="@string/action_waste"
-          app:showAsAction="never"/>
+    <!--<item android:id="@+id/action_waste"-->
+          <!--android:title="@string/action_waste"-->
+          <!--app:showAsAction="never"/>-->
 </menu>

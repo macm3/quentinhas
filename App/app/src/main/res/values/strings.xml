@@ -112,4 +112,5 @@
     <string name="payment_method">Método de pagamento</string>
     <string name="btn_confirm">Confirmar</string>
 
+    <string name="my_orders">Pedidos recentes</string>
 </resources>

@@ -108,9 +108,7 @@ class ProviderHomeFragment : Fragment() {
                         if(order != null){
                             dateThen = sdf.parse(order.date)
                             then.time = dateThen
-                            if (then.get(Calendar.DATE) != now.get(Calendar.DATE)){
-                                deleteOrder(order)
-                            } else {
+                            if (then.get(Calendar.DATE) == now.get(Calendar.DATE)){
                                 ordersList.add(order)
                                 updateUI()
                             }
@@ -121,10 +119,10 @@ class ProviderHomeFragment : Fragment() {
         })
     }
 
-    private fun deleteOrder(order: Order){
-        val mDatabase = FirebaseDatabase.getInstance().reference
-        mDatabase.child("orders").child(order.orderID!!).removeValue()
-    }
+//    private fun deleteOrder(order: Order){
+//        val mDatabase = FirebaseDatabase.getInstance().reference
+//        mDatabase.child("orders").child(order.orderID!!).removeValue()
+//    }
 
     companion object {
         fun newInstance(): ProviderHomeFragment = ProviderHomeFragment()

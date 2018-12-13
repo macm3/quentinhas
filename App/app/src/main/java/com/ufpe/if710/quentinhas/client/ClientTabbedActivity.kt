@@ -1,10 +1,13 @@
 package com.ufpe.if710.quentinhas.client
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import com.ufpe.if710.quentinhas.R
 import kotlinx.android.synthetic.main.activity_tabbed_client.*
 
@@ -53,20 +56,20 @@ class ClientTabbedActivity : AppCompatActivity(){
         navigation_client.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_config, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId)  {
         R.id.action_config -> {
-            startActivity(Intent(this, ProviderConfigurationsActivity::class.java))
+//            startActivity(Intent(this, ProviderConfigurationsActivity::class.java))
             true
         }
         else -> {
             super.onOptionsItemSelected(item)
         }
-    }*/
+    }
 
 
 }
