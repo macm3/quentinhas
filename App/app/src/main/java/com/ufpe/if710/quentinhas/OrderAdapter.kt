@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -15,11 +16,12 @@ import com.ufpe.if710.quentinhas.model.Order
 import com.ufpe.if710.quentinhas.model.User
 
 class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderAdapter.MyViewHolder>()  {
-    private var user: User? = null
+    private var client: User? = null
+    private var provider: User? = null
 
     class MyViewHolder(val view: LinearLayout) : RecyclerView.ViewHolder(view){
-        var name: TextView = view.findViewById(R.id.name_client_order)
-        var size: TextView = view.findViewById(R.id.size_order)
+        var title: TextView = view.findViewById(R.id.name_client_order)
+        var subtitle: TextView = view.findViewById(R.id.size_order)
         var btn: Button = view.findViewById(R.id.btn_more_details_order)
     }
 
@@ -35,9 +37,8 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val context = holder.view.context
-        retrieveUser(items[position].clientID!!, holder)
+        retrieveUser(items[position].clientID!!, holder, position)
 
-        holder.size.text = items[position].size
 
         holder.btn.setOnClickListener {
             val intent = Intent(context, OrderActivity::class.java)
@@ -46,13 +47,23 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
         }
     }
 
-    private fun updateUI(holder: MyViewHolder){
-        holder.name.text = user!!.name!!
+    private fun updateUIProvider(holder: MyViewHolder, position: Int){
+        if (FirebaseAuth.getInstance().currentUser!!.uid != items[position].clientID){
+            holder.title.text = client!!.name!!
+            holder.subtitle.text = items[position].size
+        }
     }
 
-    private fun retrieveUser(userID: String, holder: MyViewHolder){
+    private fun updateUIClient(holder: MyViewHolder, position: Int){
+        if (FirebaseAuth.getInstance().currentUser!!.uid == items[position].clientID){
+            holder.title.text = provider!!.restaurant!!
+            holder.subtitle.text = items[position].date
+        }
+    }
+
+    private fun retrieveUser(userID: String, holder: MyViewHolder, position: Int){
         val usersRef = FirebaseDatabase.getInstance().reference.child("users")
-        val query = usersRef.orderByKey().equalTo(userID)
+        var query = usersRef.orderByKey().equalTo(userID)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -62,11 +73,27 @@ class OrderAdapter(private val items: List<Order>) : RecyclerView.Adapter<OrderA
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
                     val data = snapshot.children.first()
-                    user = data.getValue(User::class.java)
-                    updateUI(holder)
+                    client = data.getValue(User::class.java)
+                    updateUIProvider(holder, position)
                 }
             }
         })
+
+        query = usersRef.orderByKey().equalTo(items[position].providerID)
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                println(p0.message)
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    val data = snapshot.children.first()
+                    provider = data.getValue(User::class.java)
+                    updateUIClient(holder, position)
+                }
+            }
+        })
+
     }
 
     companion object {

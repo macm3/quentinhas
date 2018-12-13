@@ -50,8 +50,6 @@ class ClientHomeFragment : Fragment(){
 
     private fun updateUI(){
         title!!.text = "${resources.getString(R.string.welcome)} ${user!!.name}"
-        Log.d("xablau", title!!.text.toString())
-        Log.d("xablau", ordersList.toString())
         try {
             doAsync {
                 val adapter = OrderAdapter(ordersList)

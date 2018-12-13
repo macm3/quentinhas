@@ -8,6 +8,8 @@ import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.google.firebase.auth.FirebaseAuth
+import com.ufpe.if710.quentinhas.LoginActivity
 import com.ufpe.if710.quentinhas.R
 import kotlinx.android.synthetic.main.activity_tabbed_client.*
 
@@ -64,6 +66,13 @@ class ClientTabbedActivity : AppCompatActivity(){
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId)  {
         R.id.action_config -> {
 //            startActivity(Intent(this, ProviderConfigurationsActivity::class.java))
+            true
+        }
+        R.id.action_sign_out -> {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
             true
         }
         else -> {
