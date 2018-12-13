@@ -60,7 +60,7 @@ class ClientHomeFragment : Fragment(){
 
         try {
             doAsync {
-                val adapter = OrderAdapter(ordersList)
+                val adapter = OrderAdapter(ordersList.reversed())
                 uiThread {
                     recyclerView!!.adapter = adapter
                 }
