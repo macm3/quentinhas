@@ -54,6 +54,7 @@ class LoginActivity : AppCompatActivity() {
 
             this.mAuth!!.signInWithEmailAndPassword(email, password).addOnCompleteListener ( this) { task ->
                 if (task.isSuccessful) {
+                    currentUser = mAuth!!.currentUser
                     findUser()
                 } else {
                     progress_bar_login.visibility = View.GONE
