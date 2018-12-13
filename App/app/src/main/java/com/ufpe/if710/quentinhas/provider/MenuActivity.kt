@@ -2,14 +2,10 @@ package com.ufpe.if710.quentinhas.provider
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.TextView
-import android.widget.LinearLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ufpe.if710.quentinhas.R
@@ -17,9 +13,13 @@ import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.MENU
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROVIDER
 import com.ufpe.if710.quentinhas.model.Menu
 import com.ufpe.if710.quentinhas.order.ChooseSizeActivity
+import com.ufpe.if710.quentinhas.order.ShowMenuAdapter
 import com.ufpe.if710.quentinhas.provider.MenusAdapter.Companion.MENU_ID
 import kotlinx.android.synthetic.main.activity_menu.*
 import org.jetbrains.anko.alert
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,11 +27,6 @@ class MenuActivity : AppCompatActivity() {
     private var menuID: String? = null
     private var menu: Menu? = null
     private var menusRef: DatabaseReference? = null
-
-    private var parentLinearLayout: LinearLayout? = null
-    private var listTextViewProtein: ArrayList<TextView> = arrayListOf()
-    private var listTextViewSide: ArrayList<TextView> = arrayListOf()
-    private var listTextViewSize: ArrayList<TextView> = arrayListOf()
 
     private var calendar = Calendar.getInstance()
     private var dateSetListener: DatePickerDialog.OnDateSetListener? = null
@@ -118,40 +113,21 @@ class MenuActivity : AppCompatActivity() {
             menu_client.visibility = View.VISIBLE
         }
 
-        for (protein in menu!!.protein){
-            parentLinearLayout = findViewById(R.id.linear_layout_protein_list)
-            listTextViewProtein.add(createTextView())
+        try {
+            doAsync {
+                val adapterProtein = ShowMenuAdapter(menu!!.protein)
+                val adapterSides = ShowMenuAdapter(menu!!.side)
+                val adapterSizes = ShowMenuAdapter(menu!!.size)
+                uiThread {
+                    recycler_view_proteins_menu.adapter = adapterProtein
+                    recycler_view_sides_menu.adapter = adapterSides
+                    recycler_view_sizes_menu.adapter = adapterSizes
+                }
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
 
-        for (side in menu!!.side){
-            parentLinearLayout = findViewById(R.id.linear_layout_side_list)
-            listTextViewSide.add(createTextView())
-        }
-
-        for (size in menu!!.size){
-            parentLinearLayout = findViewById(R.id.linear_layout_size_list)
-            listTextViewSize.add(createTextView())
-        }
-
-        for (i in listTextViewProtein.indices){
-            listTextViewProtein[i].text = menu!!.protein[i]
-        }
-
-        for (i in listTextViewSide.indices){
-            listTextViewSide[i].text = menu!!.side[i]
-        }
-
-        for (i in listTextViewSize.indices){
-            listTextViewSize[i].text = menu!!.size[i]
-        }
-
-    }
-
-    private fun createTextView(): TextView{
-        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val rowView = inflater.inflate(R.layout.new_text_view, null)
-        parentLinearLayout!!.addView(rowView, parentLinearLayout!!.childCount)
-        return rowView.findViewById(R.id.text_view)
     }
 
     private fun findMenu(){
@@ -163,9 +139,6 @@ class MenuActivity : AppCompatActivity() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                listTextViewProtein.clear()
-                listTextViewSide.clear()
-                listTextViewSize.clear()
                 if(snapshot.exists()){
                     val data = snapshot.children.first()
                     menu = data.getValue(Menu::class.java)
