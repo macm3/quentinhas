@@ -1,6 +1,7 @@
 package com.ufpe.if710.quentinhas.provider
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NO_HISTORY
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -39,6 +40,7 @@ class MenusAdapter(private val items: List<Menu>) : RecyclerView.Adapter<MenusAd
         holder.btn.setOnClickListener {
             val intent = Intent(context, MenuActivity::class.java)
             intent.putExtra(MENU_ID, items[position].menuID)
+            intent.flags = FLAG_ACTIVITY_NO_HISTORY
             context.startActivity(intent)
         }
     }
