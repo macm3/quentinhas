@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import com.ufpe.if710.quentinhas.LoginActivity
+import com.ufpe.if710.quentinhas.MainActivity
 import com.ufpe.if710.quentinhas.R
 import kotlinx.android.synthetic.main.activity_tabbed_provider.*
 
@@ -70,7 +71,7 @@ class ProviderTabbedActivity : AppCompatActivity() {
         }
         R.id.action_sign_out -> {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             true

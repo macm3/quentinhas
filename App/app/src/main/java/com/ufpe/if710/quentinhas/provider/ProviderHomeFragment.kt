@@ -83,7 +83,6 @@ class ProviderHomeFragment : Fragment() {
                     key = data.key
                     findOrders()
                 }
-                //
            }
         })
     }
@@ -115,6 +114,7 @@ class ProviderHomeFragment : Fragment() {
                         }
                     }
                 }
+                updateUI()
             }
         })
     }

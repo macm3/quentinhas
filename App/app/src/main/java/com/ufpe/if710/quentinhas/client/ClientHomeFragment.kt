@@ -101,6 +101,7 @@ class ClientHomeFragment : Fragment(){
                         }
                     }
                 }
+                updateUI()
             }
         })
     }

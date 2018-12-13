@@ -20,6 +20,7 @@
                 android:label=""
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
         </activity>
         <activity
                 android:name=".LoginActivity"
@@ -55,16 +56,17 @@
                 android:name=".client.ClientTabbedActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
                 android:name=".provider.ProviderTabbedActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
                 android:name=".provider.ProviderConfigurationsActivity"
