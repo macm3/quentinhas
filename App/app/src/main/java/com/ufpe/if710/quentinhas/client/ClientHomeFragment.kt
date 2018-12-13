@@ -14,6 +14,7 @@ import com.ufpe.if710.quentinhas.OrderAdapter
 import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.model.Order
 import com.ufpe.if710.quentinhas.model.User
+import kotlinx.android.synthetic.main.fragment_client_home.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.IOException
@@ -50,6 +51,13 @@ class ClientHomeFragment : Fragment(){
 
     private fun updateUI(){
         title!!.text = "${resources.getString(R.string.welcome)} ${user!!.name}"
+
+        if(ordersList.isEmpty()){
+            no_orders_client.visibility = View.VISIBLE
+        } else {
+            no_orders_client.visibility = View.INVISIBLE
+        }
+
         try {
             doAsync {
                 val adapter = OrderAdapter(ordersList)

@@ -167,7 +167,7 @@ class EditMenuActivity : AppCompatActivity() {
             positiveButton("OK") {
                 val intent = Intent(applicationContext, MenuActivity::class.java)
                 intent.putExtra(MenusAdapter.MENU_ID, menuID)
-                intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
                 startActivity(intent)
                 finish()
             }

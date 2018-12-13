@@ -14,6 +14,7 @@ import com.ufpe.if710.quentinhas.OrderAdapter
 import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.model.Order
 import com.ufpe.if710.quentinhas.model.User
+import kotlinx.android.synthetic.main.fragment_provider_home.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.IOException
@@ -55,6 +56,12 @@ class ProviderHomeFragment : Fragment() {
     private fun updateUI(){
         nameUserTextView!!.text = "${resources.getString(R.string.welcome)} ${user!!.name}"
         nameRestaurantTextView!!.text = "${resources.getString(R.string.welcome_restaurant)} ${user!!.restaurant}"
+
+        if(ordersList.isEmpty()){
+            no_orders_provider.visibility = View.VISIBLE
+        } else {
+            no_orders_provider.visibility = View.INVISIBLE
+        }
 
         try {
             doAsync {
