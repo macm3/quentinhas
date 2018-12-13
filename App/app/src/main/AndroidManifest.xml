@@ -64,7 +64,6 @@
                 android:name=".provider.ProviderTabbedActivity"
                 android:label=""
                 android:screenOrientation="sensorPortrait">
-
         </activity>
         <activity
                 android:name=".provider.ProviderConfigurationsActivity"
@@ -138,12 +137,19 @@
                 android:screenOrientation="sensorPortrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".provider.ChartsActivity"
-                  android:label=""
-                  android:screenOrientation="sensorPortrait"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".provider.ChartsActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".provider.ChartOrdersActivity"
+        <activity
+                android:name=".provider.ChartOrdersActivity"
+                android:label=""
+                android:screenOrientation="sensorPortrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".provider.ProviderActivity"
                   android:label=""
                   android:screenOrientation="sensorPortrait"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar">
