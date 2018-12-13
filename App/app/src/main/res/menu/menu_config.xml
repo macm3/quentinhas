@@ -5,11 +5,11 @@
           android:title="@string/action_config"
           app:showAsAction="never"/>
 
+    <item android:id="@+id/action_waste"
+          android:title="@string/action_waste"
+          app:showAsAction="never"/>
+
     <item android:id="@+id/action_sign_out"
           android:title="@string/action_sign_out"
           app:showAsAction="never"/>
-
-    <!--<item android:id="@+id/action_waste"-->
-          <!--android:title="@string/action_waste"-->
-          <!--app:showAsAction="never"/>-->
 </menu>
