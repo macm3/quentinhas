@@ -2,7 +2,6 @@ package com.ufpe.if710.quentinhas.provider
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -151,10 +150,12 @@ class ProviderConfigurationsActivity : AppCompatActivity() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val data = snapshot.children.first()
-                user = data.getValue(User::class.java)
-                key = data.key
-                updateUI()
+                if (snapshot.exists()){
+                    val data = snapshot.children.first()
+                    user = data.getValue(User::class.java)
+                    key = data.key
+                    updateUI()
+                }
             }
         })
     }

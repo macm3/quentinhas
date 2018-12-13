@@ -1,21 +1,18 @@
 package com.ufpe.if710.quentinhas.order
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.ufpe.if710.quentinhas.OrderAdapter
 import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROVIDER
 import com.ufpe.if710.quentinhas.model.Menu
-import com.ufpe.if710.quentinhas.model.User
 import com.ufpe.if710.quentinhas.provider.MenusAdapter
 import kotlinx.android.synthetic.main.activity_choose_menu.*
-import kotlinx.android.synthetic.main.activity_order.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.IOException
@@ -75,19 +72,22 @@ class ChooseMenuActivity : AppCompatActivity() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val children = snapshot.children
-                children.forEach{
-                    val menu = it.getValue(Menu::class.java)
-                    if (menu != null && menu.providerID == providerID){
-                        if (menu.day != null){
-                            dateThen = sdf.parse(menu.day)
-                            then.time = dateThen
-                            if (then.get(Calendar.DATE) == now.get(Calendar.DATE)){
-                                menusList.add(menu)
+                if (snapshot.exists()){
+                    val children = snapshot.children
+                    children.forEach{
+                        val menu = it.getValue(Menu::class.java)
+                        if (menu != null && menu.providerID == providerID){
+                            if (menu.day != null){
+                                dateThen = sdf.parse(menu.day)
+                                then.time = dateThen
+                                if (then.get(Calendar.DATE) == now.get(Calendar.DATE)){
+                                    menusList.add(menu)
+                                }
                             }
                         }
                     }
                 }
+
                 updateUI()
             }
 

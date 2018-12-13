@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
-import com.ufpe.if710.quentinhas.LoginActivity
 import com.ufpe.if710.quentinhas.MainActivity
 import com.ufpe.if710.quentinhas.R
 import kotlinx.android.synthetic.main.activity_tabbed_client.*

@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         mAuth = FirebaseAuth.getInstance()
-        currentUser = mAuth!!.currentUser
+//        currentUser = mAuth!!.currentUser
 
         btn_login.setOnClickListener {
             login()

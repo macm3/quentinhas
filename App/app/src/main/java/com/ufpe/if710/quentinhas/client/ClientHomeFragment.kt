@@ -3,7 +3,6 @@ package com.ufpe.if710.quentinhas.client
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +17,6 @@ import kotlinx.android.synthetic.main.fragment_client_home.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.IOException
-import java.text.SimpleDateFormat
 import java.util.*
 
 class ClientHomeFragment : Fragment(){

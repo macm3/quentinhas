@@ -1,6 +1,5 @@
 package com.ufpe.if710.quentinhas
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -9,8 +8,6 @@ import com.google.firebase.database.*
 import com.ufpe.if710.quentinhas.OrderAdapter.Companion.ORDER_ID
 import com.ufpe.if710.quentinhas.model.Order
 import com.ufpe.if710.quentinhas.order.ShowMenuAdapter
-import com.ufpe.if710.quentinhas.provider.MenuActivity
-import com.ufpe.if710.quentinhas.provider.MenusAdapter
 import kotlinx.android.synthetic.main.activity_order.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.doAsync

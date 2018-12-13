@@ -71,10 +71,12 @@ class ClientProfileFragment : Fragment() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val data = snapshot.children.first()
-                user = data.getValue(User::class.java)
-                key = data.key
-                updateUI()
+                if (snapshot.exists()){
+                    val data = snapshot.children.first()
+                    user = data.getValue(User::class.java)
+                    key = data.key
+                    updateUI()
+                }
             }
         })
     }
@@ -103,10 +105,9 @@ class ClientProfileFragment : Fragment() {
     }
 
     private fun sendEmail(){
-        val auth = FirebaseAuth.getInstance()
-        val emailAddress = auth.currentUser!!.email
+        val emailAddress = currentUser!!.email
 
-        auth.sendPasswordResetEmail(emailAddress!!).addOnCompleteListener {
+        mAuth!!.sendPasswordResetEmail(emailAddress!!).addOnCompleteListener {
             Toast.makeText(context, "Enviamos um email para você", Toast.LENGTH_LONG).show()
         }
     }

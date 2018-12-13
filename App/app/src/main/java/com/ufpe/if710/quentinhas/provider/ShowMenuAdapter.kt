@@ -1,17 +1,11 @@
 package com.ufpe.if710.quentinhas.order
 
-import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.ufpe.if710.quentinhas.R
-import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.MENU
-import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROTEIN
-import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.PROVIDER
-import com.ufpe.if710.quentinhas.client.ClientOrderFragment.Companion.SIZE
 
 class ShowMenuAdapter (private val items: List<String>) : RecyclerView.Adapter<ShowMenuAdapter.MyViewHolder>()  {
 

@@ -126,11 +126,6 @@ class ProviderHomeFragment : Fragment() {
         })
     }
 
-//    private fun deleteOrder(order: Order){
-//        val mDatabase = FirebaseDatabase.getInstance().reference
-//        mDatabase.child("orders").child(order.orderID!!).removeValue()
-//    }
-
     companion object {
         fun newInstance(): ProviderHomeFragment = ProviderHomeFragment()
     }
