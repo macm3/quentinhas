@@ -51,12 +51,14 @@ class ChartOrdersActivity : AppCompatActivity() {
             .position(Position.CENTER_BOTTOM)
             .anchor(Anchor.CENTER_BOTTOM)
             .offsetX(0.0)
-            .offsetY(5.0)
+            .offsetY(0.0)
             .format("{%Value}{groupsSeparator: }")
+
 
         cartesian.animation(true)
         cartesian.title(extras.getString(TITLE))
 
+        cartesian.yScale().ticks().allowFractional(false)
         cartesian.yScale().minimum(0.0)
 
         cartesian.yAxis(0).labels().format("{%Value}{groupsSeparator: }")
