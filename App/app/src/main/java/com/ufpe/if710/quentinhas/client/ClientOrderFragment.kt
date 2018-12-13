@@ -9,9 +9,11 @@ import com.google.firebase.database.*
 import com.ufpe.if710.quentinhas.R
 import com.ufpe.if710.quentinhas.model.User
 import com.ufpe.if710.quentinhas.order.ProviderAdapter
+import kotlinx.android.synthetic.main.fragment_client_order.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.IOException
+import java.text.SimpleDateFormat
 import java.util.*
 
 class ClientOrderFragment: Fragment() {
@@ -32,6 +34,12 @@ class ClientOrderFragment: Fragment() {
     }
 
     private fun updateUI(){
+        if (providersList.isEmpty()){
+            no_provider.visibility = View.VISIBLE
+        } else {
+            no_provider.visibility = View.GONE
+        }
+
         try {
             doAsync {
                 val adapter = ProviderAdapter(providersList)
@@ -45,6 +53,10 @@ class ClientOrderFragment: Fragment() {
     }
 
     private fun findProviders(){
+        val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
+        var dateThen: Date
+        val endTime = Calendar.getInstance()
+        val now = Calendar.getInstance()
         val query = usersRef!!.orderByKey()
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -58,7 +70,15 @@ class ClientOrderFragment: Fragment() {
                     for (i in snapshot.children){
                         val provider = i.getValue(User::class.java)
                         if(provider != null && provider.provider!!){
-                            providersList.add(provider)
+                            if (provider.endTime != null && provider.endTime != ""){
+                                dateThen = sdf.parse(provider.endTime!!)
+                                endTime.time = dateThen
+                                if (endTime > now){
+                                    providersList.add(provider)
+                                }
+                            } else {
+                                providersList.add(provider)
+                            }
                             updateUI()
                         }
                     }

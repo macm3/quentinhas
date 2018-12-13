@@ -147,4 +147,6 @@
     <string name="title_charts">Gráficos</string>
     <string name="title_chart">Gráfico</string>
 
+    <string name="no_provider">Infelizmente ainda não há fornecedores com cardápios disponíveis nesse horário!</string>
+
 </resources>
