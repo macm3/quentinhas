@@ -60,15 +60,11 @@ class ClientTabbedActivity : AppCompatActivity(){
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_config, menu)
+        menuInflater.inflate(R.menu.menu_client, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId)  {
-        R.id.action_config -> {
-//            startActivity(Intent(this, ProviderConfigurationsActivity::class.java))
-            true
-        }
         R.id.action_sign_out -> {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, MainActivity::class.java)
