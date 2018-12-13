@@ -59,7 +59,9 @@
 
             <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp">
                 <Button
                         android:id="@+id/btn_save_notes"
                         android:layout_width="100dp"
