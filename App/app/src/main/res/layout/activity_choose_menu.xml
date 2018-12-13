@@ -8,7 +8,7 @@
         android:orientation="vertical"
         tools:context=".order.ChooseMenuActivity">
     <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_order"
+            android:id="@+id/toolbar_order_menu"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorWhite"
@@ -51,6 +51,19 @@
                     android:text="@string/choose_menu"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
+
+            <TextView
+                    android:id="@+id/no_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="@string/no_menu"
+                    android:textSize="16sp"
+                    android:visibility="invisible"/>
 
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view_menus"

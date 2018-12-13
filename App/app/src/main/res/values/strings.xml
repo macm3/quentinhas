@@ -99,6 +99,7 @@
     <string name="title_request">Fazer Pedido</string>
     <string name="choose_restaurant">Escolha o fornecedor</string>
     <string name="choose_menu">Escolha o cardápio</string>
+    <string name="no_menu">Infelizmente esse fornecedor não possui cardápios para o dia de hoje!</string>
     <string name="select">Continuar</string>
     <string name="choose_size">Escolha o tamanho da quentinha</string>
     <string name="choose_protein">Escolha a proteína</string>

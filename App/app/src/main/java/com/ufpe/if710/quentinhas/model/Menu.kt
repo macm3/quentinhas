@@ -9,5 +9,5 @@ class Menu(
     var size: ArrayList<String> = arrayListOf(),
     var day: String? = null
 ) {
-    constructor(): this("", "", "", arrayListOf(), arrayListOf(), arrayListOf(), "")
+    constructor(): this("", "", "", arrayListOf(), arrayListOf(), arrayListOf(), null)
 }
