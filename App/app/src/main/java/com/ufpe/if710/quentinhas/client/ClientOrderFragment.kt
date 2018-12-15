@@ -74,8 +74,6 @@ class ClientOrderFragment: Fragment() {
                             if (provider.endTime != null && provider.endTime != ""){
                                 dateThen = sdf.parse(provider.endTime!!)
                                 endTime.time = dateThen
-                                Log.d("xablau", "endTime ${endTime.get(Calendar.HOUR_OF_DAY)}")
-                                Log.d("xablau", "now ${now.get(Calendar.HOUR_OF_DAY)}")
                                 if (endTime.get(Calendar.HOUR_OF_DAY) >= now.get(Calendar.HOUR_OF_DAY)){
                                     providersList.add(provider)
                                 }
