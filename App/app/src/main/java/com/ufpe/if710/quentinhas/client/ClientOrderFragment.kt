@@ -2,6 +2,7 @@ package com.ufpe.if710.quentinhas.client
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -73,7 +74,9 @@ class ClientOrderFragment: Fragment() {
                             if (provider.endTime != null && provider.endTime != ""){
                                 dateThen = sdf.parse(provider.endTime!!)
                                 endTime.time = dateThen
-                                if (endTime > now){
+                                Log.d("xablau", "endTime ${endTime.get(Calendar.HOUR_OF_DAY)}")
+                                Log.d("xablau", "now ${now.get(Calendar.HOUR_OF_DAY)}")
+                                if (endTime.get(Calendar.HOUR_OF_DAY) >= now.get(Calendar.HOUR_OF_DAY)){
                                     providersList.add(provider)
                                 }
                             } else {
